@@ -9,6 +9,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+
+      <div className='bg-slate-600'>
+        hey this is me
+      </div>
       
     </div>
   )
