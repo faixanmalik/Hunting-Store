@@ -2,177 +2,63 @@ import React from 'react'
 import Link from 'next/link'
 
 function Hoodies() {
+  const products = [
+    {
+      id: 1,
+      name: 'Earthen Bottle',
+      href: 'product/details',
+      price: '$48',
+      imageSrc: 'https://m.media-amazon.com/images/I/61iopPsSWcL._AC_UX569_.jpg',
+      imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+    },
+    {
+      id: 2,
+      name: 'Nomad Tumbler',
+      href: 'product/details',
+      price: '$35',
+      imageSrc: 'https://m.media-amazon.com/images/I/517XFmnkhML._AC_UX679_.jpg',
+      imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+    },
+    {
+      id: 3,
+      name: 'Focus Paper Refill',
+      href: 'product/details',
+      price: '$89',
+      imageSrc: 'https://m.media-amazon.com/images/I/61iopPsSWcL._AC_UX569_.jpg',
+      imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+    },
+    {
+      id: 4,
+      name: 'Machined Mechanical Pencil',
+      href: 'product/details',
+      price: '$35',
+      imageSrc: 'https://m.media-amazon.com/images/I/517XFmnkhML._AC_UX679_.jpg',
+      imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    },
+    // More products...
+  ]
   return (
-  <section className="text-gray-600 body-font">
-    <div className="container px-5 pt-5 pb-20 mx-auto">
-      <div className="flex flex-wrap px-10 lg:px-20 space-y-20">
-        <div></div>
+    <div className="bg-white">
+      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h2 className="sr-only">Products</h2>
 
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={"/product/details"}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$16.00</p>
-          </div>
-        </div>
-        
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$16.00</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$16.00</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$16.00</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$16.00</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$16.00</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$16.00</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$16.00</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$16.00</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$21.15</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$12.00</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-            <p className="mt-1">$18.40</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
-            <p className="mt-1">$16.00</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-            <p className="mt-1">$21.15</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-            <p className="mt-1">$12.00</p>
-          </div>
-        </div>
-        <div className="w-60 mx-auto">
-          <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/51MPUW0obUL._AC_UX679_.jpg"/></Link>
-          </div>
-          <div className="mt-4 text-center sm:text-left">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-            <p className="mt-1">$18.40</p>
-          </div>
+        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          {products.map((product) => (
+            <Link key={product.id} href={product.href} className="group">
+              <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                <img
+                  src={product.imageSrc}
+                  alt={product.imageAlt}
+                  className="h-full w-full object-cover object-center group-hover:opacity-75"
+                />
+              </div>
+                <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
+                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
-  </section>
-  )
-}
-
+      )
+    }
 export default Hoodies
