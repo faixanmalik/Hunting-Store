@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Hero from '../components/Hero'
+import Statics from '../components/Statics'
+import Testimonials from '../components/Testimonials'
 
 export default function Home() {
   return (
@@ -11,9 +13,8 @@ export default function Home() {
       </Head>
 
       <Hero/>
-
-      
-      
+      <Statics/>
+      <Testimonials/>
     </div>
   )
 }

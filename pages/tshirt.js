@@ -10,7 +10,7 @@ function Tshirt() {
 
         <div className="w-60 mx-auto">
           <div className="block relative h-72 rounded overflow-hidden">
-            <Link href={"/product/details"}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+            <Link href={"/product/details"}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
           </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
@@ -20,9 +20,9 @@ function Tshirt() {
         </div>
         
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
@@ -30,9 +30,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
@@ -40,9 +40,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
@@ -50,9 +50,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
@@ -60,9 +60,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
@@ -70,9 +70,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
@@ -80,9 +80,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
@@ -90,9 +90,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
@@ -100,9 +100,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
@@ -110,9 +110,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
@@ -120,9 +120,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
@@ -130,9 +130,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Lets enjoy!</h2>
@@ -140,9 +140,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
@@ -150,9 +150,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">Neptune</h2>
@@ -160,9 +160,9 @@ function Tshirt() {
           </div>
         </div>
         <div className="w-60 mx-auto">
-          <a className="block relative h-72 rounded overflow-hidden">
-            <Link href={'/product/details'}><img alt="ecommerce" className="w-96 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
-          </a>
+          <div className="block relative h-72 rounded overflow-hidden">
+            <Link href={'/product/details'}><img alt="ecommerce" className="w-52 h-full block" src="https://m.media-amazon.com/images/I/61rmFbZ7tTL._AC_UX679_.jpg"/></Link>
+          </div>
           <div className="mt-4 text-center sm:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
