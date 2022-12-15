@@ -65,7 +65,7 @@ import { RadioGroup } from '@headlessui/react'
 
   
   // main function
-  function Slug() {
+  function Slug(props) {
 
     const [selectedColor, setSelectedColor] = useState(product.colors[0])
     const [selectedSize, setSelectedSize] = useState(product.sizes[2])
@@ -99,7 +99,7 @@ import { RadioGroup } from '@headlessui/react'
               </li>
             ))}
             <li className="text-sm">
-              <a href={product.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
+              <a href={product.href} aria-current="page" className="font-medium text-red-500 hover:text-gray-600">
                 {product.name}
               </a>
             </li>

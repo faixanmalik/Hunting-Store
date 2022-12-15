@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.7.5",
     "@heroicons/react": "^2.0.13",
     "heroicons-react": "^1.4.1",
+    "mdb-react-ui-kit": "^5.0.0",
     "next": "13.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",

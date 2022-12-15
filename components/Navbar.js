@@ -1,119 +1,270 @@
 import React from "react";
 import Link from "next/link";
-import { AiOutlineShoppingCart ,AiOutlineCloseCircle } from "react-icons/ai";
-import { useRef } from "react";
+import { Fragment, useState } from "react";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Dialog, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+
+const products = [
+  {
+    id: 1,
+    name: "Throwback Hip Bag",
+    href: "#",
+    color: "Salmon",
+    price: "$90.00",
+    quantity: 1,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
+    imageAlt:
+      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
+  },
+  {
+    id: 2,
+    name: "Medium Stuff Satchel",
+    href: "#",
+    color: "Blue",
+    price: "$32.00",
+    quantity: 1,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
+    imageAlt:
+      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
+  },
+  // More products...
+];
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
 
-  const togglecart = ()=> {
-    if (ref.current.classList.contains('translate-x-full')){
-      ref.current.classList.remove('translate-x-full');
-      ref.current.classList.add('translate-x-0');
-    }
-    else {
-      ref.current.classList.remove('translate-x-0');
-      ref.current.classList.add('translate-x-full');
-    }
-  }
-  const ref = useRef()
+  //   if (ref.current.classList.contains("translate-x-full")) {
+  //     ref.current.classList.remove("translate-x-full");
+  //     ref.current.classList.add("translate-x-0");
+  //   } else {
+  //     ref.current.classList.remove("translate-x-0");
+  //     ref.current.classList.add("translate-x-full");
+  //   }
+  // };
+  // const ref = useRef();
 
   return (
     <>
-    <header className="text-gray-600 body-font border-b-2 ">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-          <span className="ml-3 text-2xl font-bold text-blue-800">
-            Hunting_Coder
-          </span>
-        </a>
-        <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-lg justify-center list-none space-x-8 md:space-x-3 lg:space-x-8">
-          <Link href={"/"}>
-            <li>Home</li>
-          </Link>
-          <Link href={"/Ourservices"}>
-            <li>Our Services</li>
-          </Link>
-          <Link href={"/about"}>
-            <li>About Us</li>
-          </Link>
-          <Link href={"/contact"}>
-            <li>Contact Us</li>
-          </Link>
-        </nav>
-        <div className="inline-flex items-center mt-4 md:mt-0 space-x-8 md:space-x-5 lg:space-x-8">
-          <button className=" bg-blue-700 text-white rounded-xl font-semibold border-0 py-2 px-7 focus:outline-none hover:bg-blue-800 text-base">
-            <Link href={"/login"}>Log in</Link>
-          </button>
-          <AiOutlineShoppingCart onClick={togglecart} className="text-xl cursor-pointer" />
-        </div>
+      <header className="text-gray-600 body-font border-b-2 ">
+        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span className="ml-3 text-2xl font-bold text-blue-800">
+              Hunting_Coder
+            </span>
+          </a>
+          <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-lg justify-center list-none space-x-8 md:space-x-3 lg:space-x-8">
+            <a href={"/"}>
+              <li>Home</li>
+            </a>
+            <a href={"/Ourservices"}>
+              <li>Our Services</li>
+            </a>
+            <a href={"/about"}>
+              <li>About Us</li>
+            </a>
+            <a href={"/contact"}>
+              <li>Contact Us</li>
+            </a>
+          </nav>
+          <div className="inline-flex items-center mt-4 md:mt-0 space-x-8 md:space-x-5 lg:space-x-8">
+            <button className=" bg-blue-700 text-white rounded-xl font-semibold border-0 py-2 px-7 focus:outline-none hover:bg-blue-800 text-base">
+              <a href={"/login"}>Log in</a>
+            </button>
+            <AiOutlineShoppingCart
+              onClick={() => setOpen(true)}
+              className="text-xl cursor-pointer"
+            />
+          </div>
 
-
-
-        <div ref={ref}  className="cart rounded-lg absolute top-0 right-0 bg-blue-100 px-7 w-80 h-96 transform transition-transform translate-x-full">
-          
-          <div className="pt-3">
-            <h1 className="font-bold text-xl text-center text-blue-800 tracking-wider">Shopping Cart</h1>
-            <span onClick={togglecart} className="absolute top-7 right-5 text-xl"><AiOutlineCloseCircle className="cursor-pointer text-blue-600"/></span>
-            <h1 className="font-bold text-base text-center text-blue-800 tracking-wide">Hunting_Store</h1>
+          {/* template Cart */}
           <div>
-            <ol className="pt-7 list-decimal font-medium text-red-800 space-y-2">
+            <Transition.Root show={open} as={Fragment}>
+              <Dialog as="div" className="relative z-10" onClose={setOpen}>
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-in-out duration-500"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="ease-in-out duration-500"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                </Transition.Child>
 
-              <li className="text-lg">
-                <div className="flex justify-between">
-                  <div className="w-1/2">T-shirts</div>
-                  <div className="w-1/3 bg-slate-100 text-blue-800 font-bold text-center">1</div>
-                </div>
-              </li>
-              <li className="text-lg">
-                <div className="flex justify-between">
-                  <div className="w-1/2">Hoodies</div>
-                  <div className="w-1/3 bg-slate-100 text-blue-800 font-bold text-center">1</div>
-                </div>
-              </li>
-              <li className="text-lg">
-                <div className="flex justify-between">
-                  <div className="w-1/2">Mugs</div>
-                  <div className="w-1/3 bg-slate-100 text-blue-800 font-bold text-center">1</div>
-                </div>
-              </li>
-               
+                <div className="fixed inset-0 overflow-hidden">
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                      <Transition.Child
+                        as={Fragment}
+                        enter="transform transition ease-in-out duration-500 sm:duration-700"
+                        enterFrom="translate-x-full"
+                        enterTo="translate-x-0"
+                        leave="transform transition ease-in-out duration-500 sm:duration-700"
+                        leaveFrom="translate-x-0"
+                        leaveTo="translate-x-full"
+                      >
+                        <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
+                          <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                            <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+                              <div className="flex items-start justify-between">
+                                <Dialog.Title className="text-lg font-medium text-gray-900">
+                                  Shopping cart
+                                </Dialog.Title>
+                                <div className="ml-3 flex h-7 items-center">
+                                  <button
+                                    type="button"
+                                    className="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                                    onClick={() => setOpen(false)}
+                                  >
+                                    <span className="sr-only">Close panel</span>
+                                    <XMarkIcon
+                                      className="h-6 w-6"
+                                      aria-hidden="true"
+                                    />
+                                  </button>
+                                </div>
+                              </div>
 
-            </ol>
+                              <div className="mt-8">
+                                <div className="flow-root">
+                                  <ul
+                                    role="list"
+                                    className="-my-6 divide-y divide-gray-200"
+                                  >
+                                    {products.map((product) => (
+                                      <li
+                                        key={product.id}
+                                        className="flex py-6"
+                                      >
+                                        <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                          <img
+                                            src={product.imageSrc}
+                                            alt={product.imageAlt}
+                                            className="h-full w-full object-cover object-center"
+                                          />
+                                        </div>
+
+                                        <div className="ml-4 flex flex-1 flex-col">
+                                          <div>
+                                            <div className="flex justify-between text-base font-medium text-gray-900">
+                                              <h3>
+                                                <a href={product.href}>
+                                                  {product.name}
+                                                </a>
+                                              </h3>
+                                              <p className="ml-4">
+                                                {product.price}
+                                              </p>
+                                            </div>
+                                            <p className="mt-1 text-sm text-gray-500">
+                                              {product.color}
+                                            </p>
+                                          </div>
+                                          <div className="flex flex-1 items-end justify-between text-sm">
+                                            <p className="text-gray-500">
+                                              Qty {product.quantity}
+                                            </p>
+
+                                            <div className="flex">
+                                              <button
+                                                type="button"
+                                                className="font-medium text-indigo-600 hover:text-indigo-500"
+                                              >
+                                                Remove
+                                              </button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
+                              <div className="flex justify-between text-base font-medium text-gray-900">
+                                <p>Subtotal</p>
+                                <p>$262.00</p>
+                              </div>
+                              <p className="mt-0.5 text-sm text-gray-500">
+                                Shipping and taxes calculated at checkout.
+                              </p>
+                              <div className="mt-6">
+                                <a
+                                  href="/checkout"
+                                  className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                                >
+                                  Checkout
+                                </a>
+                              </div>
+                              <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+                                <p>
+                                  or
+                                  <button
+                                    type="button"
+                                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                                    onClick={() => setOpen(false)}
+                                  >
+                                    Continue Shopping
+                                    <span aria-hidden="true"> &rarr;</span>
+                                  </button>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </Dialog.Panel>
+                      </Transition.Child>
+                    </div>
+                  </div>
+                </div>
+              </Dialog>
+            </Transition.Root>
           </div>
-          </div>
-          
         </div>
-      </div>
-    </header>
-    <section class="text-gray-600 body-font">
-    <div class="container px-5  mx-auto flex flex-wrap flex-col">
-      <div class="flex mx-auto flex-wrap">
-        <Link href={'/tshirt'} class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium bg-gray-100 inline-flex items-center leading-none border-indigo-500 text-indigo-500 tracking-wider rounded-t">
-          T_shirts
-        </Link>
-        <Link href={'/hoodies'} class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider">
-          Hoodies
-        </Link>
-        <Link href={'/mugs'} class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider">
-          Mugs
-        </Link>
-        
-      </div>
-    </div>
-  </section>
-  </>
+      </header>
+
+      <section class="text-gray-600 body-font">
+        <div class="container px-5  mx-auto flex flex-wrap flex-col">
+          <div class="flex mx-auto flex-wrap">
+            <a
+              href={"/tshirt"}
+              class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium bg-gray-100 inline-flex items-center leading-none border-indigo-500 text-indigo-500 tracking-wider rounded-t"
+            >
+              T_shirts
+            </a>
+            <a
+              href={"/hoodies"}
+              class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider"
+            >
+              Hoodies
+            </a>
+            <a
+              href={"/mugs"}
+              class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider"
+            >
+              Mugs
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
