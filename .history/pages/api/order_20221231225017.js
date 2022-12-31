@@ -7,7 +7,7 @@ const handler = async (req,res)=>{
 
     if (req.method == 'POST'){
         const {products, email, cardHolder, cardNumber,cardExpiry, cardCvc, streetAddress, state, zip} = req.body;
-        let newOrder = new Order( {products, email, cardHolder, cardNumber,cardExpiry, cardCvc, streetAddress, state, zip} );
+        let newOrder = new Order( {firstName, lastName, email, products , country ,streetAddress, city, state, zip} );
         await newOrder.save();
         res.status(200).json({ success: true, message: "New Order Added !"})
         }

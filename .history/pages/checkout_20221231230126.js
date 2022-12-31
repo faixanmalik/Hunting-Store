@@ -11,8 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
   
 
-  // const [products, setProducts] = useState(JSON.parse(JSON.stringify(cart)))
-  const products = cart
+  const [products, setProducts] = useState(JSON.parse(JSON.stringify(cart)))
   const [email, setEmail] = useState('')
   const [cardHolder, setCardHolder] = useState('')
   const [cardNumber, setCardNumber] = useState('')
@@ -62,31 +61,34 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
     
     // fetch the data from form to makes a file in local system
     const data = { email, cardHolder, cardNumber, cardExpiry, cardCvc, products , streetAddress, state, zip };
+    console.log(data);
+    console.log(products)
+    console.log(cart)
 
-      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/order`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      let response = await res.json()
-        setEmail('')
-        setCardHolder('')
-        setCardNumber('')
-        setCardExpiry('')
-        setCardCvc('')
-        setState('')
-        setStreetAddress('')
-        setZip('')
+    //   let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/order`, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   let response = await res.json()
+        // setEmail('')
+        // setCardHolder('')
+        // setCardNumber('')
+        // setCardExpiry('')
+        // setCardCvc('')
+        // setState('')
+        // setStreetAddress('')
+        // setZip('')
 
-        if (response.success === true) {
-            toast.success(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
-        }
+        // if (response.success === true) {
+        //     toast.success(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
+        // }
 
-        else {
-            toast.error(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
-        }
+        // else {
+        //     toast.error(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
+        // }
 
   }
 

@@ -194,7 +194,6 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
             <Link href={"/tshirt"} className="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium bg-gray-100 inline-flex items-center leading-none border-gray-200 text-indigo-500 tracking-wider rounded-t">T_shirts</Link>
             <Link href={"/hoodies"} className="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider">Hoodies</Link>
             <Link href={"/mugs"} className="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider">Mugs</Link>
-            
           </div>
         </div>
       </section>

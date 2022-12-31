@@ -44,7 +44,7 @@ function Signup() {
       if (response.success === true) {
         toast.success(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
         setTimeout(() => {
-          router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
+          router.push(`${process.env.NEXT_PUBLIC_HOST}}/login`);
         }, 1500);
       }
       else{

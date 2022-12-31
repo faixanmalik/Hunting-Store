@@ -8,11 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
-  
+function Checkout({cart , subTotal, removeFromCart, addToCart }) {
 
-  // const [products, setProducts] = useState(JSON.parse(JSON.stringify(cart)))
-  const products = cart
   const [email, setEmail] = useState('')
   const [cardHolder, setCardHolder] = useState('')
   const [cardNumber, setCardNumber] = useState('')
@@ -21,7 +18,8 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
   const [streetAddress, setStreetAddress] = useState('')
   const [state, setState] = useState('')
   const [zip, setZip] = useState('')
-
+  const [products, setProducts] =  useState(cart)
+  
 
 
   const handleChange = (e) => {
@@ -62,31 +60,31 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
     
     // fetch the data from form to makes a file in local system
     const data = { email, cardHolder, cardNumber, cardExpiry, cardCvc, products , streetAddress, state, zip };
+    console.log(data);
+    //   let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/order`, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   let response = await res.json()
+        // setEmail('')
+        // setCardHolder('')
+        // setCardNumber('')
+        // setCardExpiry('')
+        // setCardCvc('')
+        // setState('')
+        // setStreetAddress('')
+        // setZip('')
 
-      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/order`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      let response = await res.json()
-        setEmail('')
-        setCardHolder('')
-        setCardNumber('')
-        setCardExpiry('')
-        setCardCvc('')
-        setState('')
-        setStreetAddress('')
-        setZip('')
+        // if (response.success === true) {
+        //     toast.success(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
+        // }
 
-        if (response.success === true) {
-            toast.success(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
-        }
-
-        else {
-            toast.error(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
-        }
+        // else {
+        //     toast.error(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
+        // }
 
   }
 
@@ -161,7 +159,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
         <div className="relative">
           <input className="peer hidden" id="radio_1" type="radio" name="radio" checked onChange={e => {}} />
           <span className="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-          <label className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" htmlFor="radio_1">
+          <label className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
             <img className="w-14 object-contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRN420PXvQjOtSkJalqXFZ-FXrjBZH3eRvCsS1H80K&s\" alt="" />
             <div className="ml-5">
               <span className="mt-2 font-semibold">Fedex Delivery</span>
@@ -172,7 +170,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
         <div className="relative">
           <input className="peer hidden" id="radio_2" type="radio" name="radio" checked />
           <span className="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-          <label className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" htmlFor="radio_2">
+          <label className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
             <img className="w-14 object-contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRN420PXvQjOtSkJalqXFZ-FXrjBZH3eRvCsS1H80K&s" alt="" />
             <div className="ml-5">
               <span className="mt-2 font-semibold">Fedex Delivery</span>
@@ -192,7 +190,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
 
 
       <form method='POST' onSubmit={submit} className="">
-        <label htmlFor="email" className="mt-4 mb-2 block text-sm font-medium">Email</label>
+        <label for="email" className="mt-4 mb-2 block text-sm font-medium">Email</label>
         <div className="relative">
           <input onChange={handleChange} value={email} type="text" id="email" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="your.email@gmail.com" required />
           <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
@@ -201,7 +199,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
             </svg>
           </div>
         </div>
-        <label htmlFor="card-holder" className="mt-4 mb-2 block text-sm font-medium">Card Holder</label>
+        <label for="card-holder" className="mt-4 mb-2 block text-sm font-medium">Card Holder</label>
         <div className="relative">
           <input onChange={handleChange} value={cardHolder} type="text" id="cardHolder" name="cardHolder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Your full name here" required />
           <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
@@ -210,7 +208,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
             </svg>
           </div>
         </div>
-        <label htmlFor="card-no" className="mt-4 mb-2 block text-sm font-medium">Card Details</label>
+        <label for="card-no" className="mt-4 mb-2 block text-sm font-medium">Card Details</label>
         <div className="flex">
           <div className="relative w-7/12 flex-shrink-0">
             <input onChange={handleChange} value={cardNumber} type="number" id="cardNumber" name="cardNumber" className="w-full rounded-md border border-gray-200 px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="xxxx-xxxx-xxxx-xxxx" required />
@@ -224,7 +222,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
           <input onChange={handleChange} value={cardExpiry} type="string" name="cardExpiry" className="w-full rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="MM/YY" required />
           <input onChange={handleChange} value={cardCvc} type="number" name="cardCvc" className="w-1/6 flex-shrink-0 rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="CVC" required />
         </div>
-        <label htmlFor="billing-address" className="mt-4 mb-2 block text-sm font-medium">Billing Address</label>
+        <label for="billing-address" className="mt-4 mb-2 block text-sm font-medium">Billing Address</label>
         <div className="flex flex-col sm:flex-row">
           <div className="relative sm:w-7/12">
             <input onChange={handleChange} value={streetAddress} type="text" id="streetAddress" name="streetAddress" className="w-full rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Street Address" required />

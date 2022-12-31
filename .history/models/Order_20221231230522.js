@@ -6,7 +6,7 @@ const OrderSchema = new mongoose.Schema({
     cardNumber:{type: Number, required: true},
     cardExpiry:{type: String, required: true},
     cardCvc:{type: Number, required: true},
-    products:Array,
+    products:[type: Array],
     streetAddress: {type: String, required: true},
     state: {type: String, required: true},
     zip: {type: Number, required: true},
