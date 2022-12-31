@@ -42,8 +42,7 @@ function Navbar({logout , user, cart, subTotal }) {
           <div className="inline-flex items-center mt-4 md:mt-0 space-x-8 md:space-x-5 lg:space-x-8">
 
 
-            {/* Logined User */}
-            <Menu as="div" className="relative inline-block text-left">
+          <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="inline-flex mt-2">
                   {user.value && <BiUserCircle className='text-2xl cursor-pointer' aria-hidden="true"/>}
@@ -73,9 +72,9 @@ function Navbar({logout , user, cart, subTotal }) {
                   </div>
                 </Menu.Items>
                 </Transition>
-            </Menu>
+              </Menu>
 
-
+              
             {!user.value && <button className=" bg-blue-700 text-white rounded-xl font-semibold border-0 py-2 px-7 focus:outline-none hover:bg-blue-800 text-base">
                   <Link href={"/login"}>Log In</Link>
                 </button>}

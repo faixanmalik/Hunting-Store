@@ -42,7 +42,6 @@ function Navbar({logout , user, cart, subTotal }) {
           <div className="inline-flex items-center mt-4 md:mt-0 space-x-8 md:space-x-5 lg:space-x-8">
 
 
-            {/* Logined User */}
             <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="inline-flex mt-2">

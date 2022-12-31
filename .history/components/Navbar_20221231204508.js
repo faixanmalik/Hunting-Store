@@ -40,49 +40,13 @@ function Navbar({logout , user, cart, subTotal }) {
             </Link>
           </nav>
           <div className="inline-flex items-center mt-4 md:mt-0 space-x-8 md:space-x-5 lg:space-x-8">
-
-
-            {/* Logined User */}
-            <Menu as="div" className="relative inline-block text-left">
-                <div>
-                  <Menu.Button className="inline-flex mt-2">
-                  {user.value && <BiUserCircle className='text-2xl cursor-pointer' aria-hidden="true"/>}
-                  </Menu.Button>
-                </div>
-                <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
-                <Menu.Items className="absolute md:right-0 z-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <div className="py-1">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a href="#" className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm' )}>Account settings</a>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (<Link href={'/order'} className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')}>Orders</Link>)}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (<a href="#" className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')}>License</a>)}
-                    </Menu.Item>
-                    <div>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <button onClick={logout}  className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full px-4 py-2 text-left text-sm')}>Log Out</button>
-                        )}
-                      </Menu.Item>
-                    </div>
-                  </div>
-                </Menu.Items>
-                </Transition>
-            </Menu>
-
-
-            {!user.value && <button className=" bg-blue-700 text-white rounded-xl font-semibold border-0 py-2 px-7 focus:outline-none hover:bg-blue-800 text-base">
-                  <Link href={"/login"}>Log In</Link>
-                </button>}
-
-
-
-            <AiOutlineShoppingCart onClick={() => setOpen(true)} className="text-xl cursor-pointer"/>
+            <button className=" bg-blue-700 text-white rounded-xl font-semibold border-0 py-2 px-7 focus:outline-none hover:bg-blue-800 text-base">
+              <Link href={"/login"}>Log in</Link>
+            </button>
+            <AiOutlineShoppingCart
+              onClick={() => setOpen(true)}
+              className="text-xl cursor-pointer"
+            />
           </div>
 
           {/* template Cart */}
@@ -184,7 +148,7 @@ function Navbar({logout , user, cart, subTotal }) {
 
 
 
-
+          
         </div>
       </header>
 

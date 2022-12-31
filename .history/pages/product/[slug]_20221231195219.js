@@ -49,7 +49,7 @@ import 'react-toastify/dist/ReactToastify.css';
           <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
 
 
-            {Object.keys(product).map((item)=>{
+            {Object.keys(cart).map((item)=>{
               <li key={product._id}>
                 <div className="flex items-center">
                   <a href={product.href} className="mr-2 text-sm font-medium text-gray-900">

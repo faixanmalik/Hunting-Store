@@ -55,7 +55,7 @@ function Checkout({cart , subTotal, removeFromCart, addToCart }) {
 
     
     // fetch the data from form to makes a file in local system
-    const data = { email, cardHolder, cardNumber, cardExpiry, cardCvc, products , streetAddress, state, zip };
+    const data = { firstName, lastName, email, country , products , streetAddress, city, state, zip };
     console.log(data);
       let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/order`, {
       method: 'POST',
@@ -212,7 +212,7 @@ function Checkout({cart , subTotal, removeFromCart, addToCart }) {
               </svg>
             </div>
           </div>
-          <input onChange={handleChange} value={cardExpiry} type="string" name="cardExpiry" className="w-full rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="MM/YY" />
+          <input onChange={handleChange} value={cardExpiry} type="number" name="cardExpiry" className="w-full rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="MM/YY" />
           <input onChange={handleChange} value={cardCvc} type="number" name="cardCvc" className="w-1/6 flex-shrink-0 rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="CVC" />
         </div>
         <label for="billing-address" className="mt-4 mb-2 block text-sm font-medium">Billing Address</label>

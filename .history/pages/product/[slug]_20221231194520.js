@@ -2,7 +2,6 @@ import React ,{ useState } from 'react'
 import { useRouter } from 'next/router'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
-
 import Product from '../../models/Product';
 import mongoose from "mongoose";
 
@@ -21,39 +20,24 @@ import 'react-toastify/dist/ReactToastify.css';
 
   
   // main function
-  function Slug({addToCart , product , variants}) {
+  function Slug(props) {
+
+    const [selectedColor, setSelectedColor] = useState(product.colors[0])
+    const [selectedSize, setSelectedSize] = useState(product.sizes[2])
     const router = useRouter()
     const { slug } = router.query
-
-    const [color, setColor] = useState(product.color)
-    const [size, setSize] = useState(product.size)
-
-    // React tostify
-    const addcart = () => toast.success("Item is added in your Cart.!");
-
-    const refresh = ( newSize , newColor ) => {
-      let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newColor][newSize]['slug']}`;
-      window.location = url;
-    }
-
-
-
-
-
 
 
   return (
     <div className="bg-white">
       <div className="pt-6">
-        <nav aria-label="product">
+        <nav aria-label="Breadcrumb">
           <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-
-
-            {Object.keys(product).map((item)=>{
-              <li key={product._id}>
+            {product.breadcrumbs.map((breadcrumb) => (
+              <li key={breadcrumb.id}>
                 <div className="flex items-center">
-                  <a href={product.href} className="mr-2 text-sm font-medium text-gray-900">
-                    {product.name}
+                  <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
+                    {breadcrumb.name}
                   </a>
                   <svg
                     width={16}
@@ -68,9 +52,7 @@ import 'react-toastify/dist/ReactToastify.css';
                   </svg>
                 </div>
               </li>
-            })}
-
-
+            ))}
             <li className="text-sm">
               <a href={product.href} aria-current="page" className="font-medium text-red-500 hover:text-gray-600">
                 {product.name}
@@ -292,35 +274,6 @@ import 'react-toastify/dist/ReactToastify.css';
       </div>
     </div>
   )
-}
-
-
-
-
-
-
-export async function getServerSideProps(context) {
-  if (!mongoose.connections[0].readyState){
-    await mongoose.connect(process.env.MONGO_URI)
-  }
-  let product = await Product.findOne({slug: context.query.slug})
-  let variants = await Product.find({title: product.title , category: product.category})
-  
-  let colorSizeSlug = {}
-  for (let item of variants){
-    if(Object.keys(colorSizeSlug).includes(item.color) ){
-      colorSizeSlug[item.color][item.size] = {slug: item.slug}
-    }
-    else{
-      colorSizeSlug[item.color] = {}
-      colorSizeSlug[item.color][item.size] = {slug: item.slug}
-    }
-  };
-
-  // Pass data to the page via props
-  return {
-     props: { product: JSON.parse(JSON.stringify(product)), variants: JSON.parse(JSON.stringify(colorSizeSlug)) } 
-    }
 }
 
 export default Slug

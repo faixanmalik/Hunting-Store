@@ -45,15 +45,15 @@ import 'react-toastify/dist/ReactToastify.css';
   return (
     <div className="bg-white">
       <div className="pt-6">
-        <nav aria-label="product">
+        <nav aria-label="Breadcrumb">
           <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
 
 
-            {Object.keys(product).map((item)=>{
-              <li key={product._id}>
+          {Object.keys(cart).map((item)=>{
+              <li key={breadcrumb.id}>
                 <div className="flex items-center">
-                  <a href={product.href} className="mr-2 text-sm font-medium text-gray-900">
-                    {product.name}
+                  <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
+                    {breadcrumb.name}
                   </a>
                   <svg
                     width={16}
@@ -68,9 +68,7 @@ import 'react-toastify/dist/ReactToastify.css';
                   </svg>
                 </div>
               </li>
-            })}
-
-
+            )}
             <li className="text-sm">
               <a href={product.href} aria-current="page" className="font-medium text-red-500 hover:text-gray-600">
                 {product.name}
