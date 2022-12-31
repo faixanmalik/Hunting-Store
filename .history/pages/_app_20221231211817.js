@@ -142,8 +142,8 @@ function MyApp({ Component, pageProps }) {
 
   return <>
   <LoadingBar color='#007af' height={2} progress={progress} waitingTime={300} onLoaderFinished={() => setProgress(0)}/>
-  <Navbar key={key} user={user} logout={logout} cart={cart} deleteItemFromCart={deleteItemFromCart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} />
-  <Component cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} deleteItemFromCart={deleteItemFromCart} clearCart={clearCart} subTotal={subTotal}  {...pageProps} />
+  <Navbar key={key} user={user} logout={logout} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} />
+  <Component cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal}  {...pageProps} />
   <Footer/>
   </> 
 }

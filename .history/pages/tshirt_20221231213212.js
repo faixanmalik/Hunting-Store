@@ -13,7 +13,7 @@ function Tshirt({ product }) {
 
 
 
-        {Object.keys(product).length === 0 && <div className="font-semibold text-center">Sorry! Currently Stock Unavailble right now. Please wait for the new Stock.!</div>}  
+        {Object.keys(product).length === 0 && <div className="font-semibold mx-auto">Sorry! Currently Stock Unavailble right now. Please wait for the new Stock.!</div>}  
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
 
         {Object.keys(product).map((item)=>{

@@ -114,7 +114,7 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
                                 <div className="flow-root">
                                   <ul role="list" className="-my-6 divide-y divide-gray-200">
 
-                                  {Object.keys(cart).length == 0 && <div className='text-center mt-10 text-lg'>Your Cart is Empty!</div> }
+                                  {Object.keys(cart).length == 0 && <div className='text-center mt-10 text-lg'>Your Cart is Empty</div> }
                                   {Object.keys(cart).map((item)=>{
                                       return <li key={item} className="flex py-6">
                                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">

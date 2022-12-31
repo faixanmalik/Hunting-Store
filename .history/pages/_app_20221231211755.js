@@ -115,8 +115,11 @@ function MyApp({ Component, pageProps }) {
   const deleteItemFromCart = (itemCode, name, qty, price, size, variant) =>{
     let newCart = cart;
     if(itemCode in cart){
-      delete newCart[itemCode];
+      newCart[itemCode].qty= cart[itemCode].qty - qty;
     }
+     if (newCart[itemCode].qty <=0){
+      delete newCart[itemCode];
+     }
     setCart(newCart);
     saveCart(newCart);
   } 
@@ -142,8 +145,8 @@ function MyApp({ Component, pageProps }) {
 
   return <>
   <LoadingBar color='#007af' height={2} progress={progress} waitingTime={300} onLoaderFinished={() => setProgress(0)}/>
-  <Navbar key={key} user={user} logout={logout} cart={cart} deleteItemFromCart={deleteItemFromCart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} />
-  <Component cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} deleteItemFromCart={deleteItemFromCart} clearCart={clearCart} subTotal={subTotal}  {...pageProps} />
+  <Navbar key={key} user={user} logout={logout} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} />
+  <Component cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal}  {...pageProps} />
   <Footer/>
   </> 
 }

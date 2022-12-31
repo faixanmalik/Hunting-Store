@@ -114,7 +114,7 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
                                 <div className="flow-root">
                                   <ul role="list" className="-my-6 divide-y divide-gray-200">
 
-                                  {Object.keys(cart).length == 0 && <div className='text-center mt-10 text-lg'>Your Cart is Empty!</div> }
+                                  {Object.keys(cart).length == 0 && <div className='text-center text-lg'>Your Cart is Empty</div> }
                                   {Object.keys(cart).map((item)=>{
                                       return <li key={item} className="flex py-6">
                                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -136,7 +136,7 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
                                             <p className="text-gray-500">Qty: {cart[item].qty}</p>
               
                                             <div className="flex">
-                                              <button onClick={()=>{deleteItemFromCart(item,cart[item].name,1,cart[item].price,cart[item].size,cart[item].variant)}} type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                                              <button onClick={deleteItemFromCart()} type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
                                             </div>
                                           </div>
                                         </div>

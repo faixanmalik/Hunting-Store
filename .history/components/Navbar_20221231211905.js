@@ -3,7 +3,7 @@ import { React, Fragment, useState, useRef } from "react";
 import { Dialog, Transition, Menu } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiOutlineShoppingCart,AiOutlineShopping, AiOutlineCloseCircle, AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
 import { BiUserCircle } from 'react-icons/bi';
 
 function classNames(...classes) {
@@ -11,7 +11,7 @@ function classNames(...classes) {
 }
 
 
-function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
+function Navbar({logout , user, cart, subTotal }) {
   const [open, setOpen] = useState(false);
 
 
@@ -114,7 +114,7 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
                                 <div className="flow-root">
                                   <ul role="list" className="-my-6 divide-y divide-gray-200">
 
-                                  {Object.keys(cart).length == 0 && <div className='text-center mt-10 text-lg'>Your Cart is Empty!</div> }
+                                  {Object.keys(cart).length == 0 && <div className='text-center text-lg'>Your Cart is Empty</div> }
                                   {Object.keys(cart).map((item)=>{
                                       return <li key={item} className="flex py-6">
                                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -134,9 +134,10 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
                                           </div>
                                           <div className="flex flex-1 items-end justify-between text-sm">
                                             <p className="text-gray-500">Qty: {cart[item].qty}</p>
-              
+                                            {/* <div className="flex" ><AiFillMinusCircle onClick={()=>{removeFromCart(item,cart[item].name,1,cart[item].price,cart[item].size,cart[item].variant)}} className='my-auto text-lg cursor-pointer'/> <span className='mx-2 text-lg'>{cart[item].qty}</span> <AiFillPlusCircle onClick={()=>{addToCart(item,cart[item].name,1,cart[item].price,cart[item].size,cart[item].variant)}} className='my-auto text-lg cursor-pointer'/> </div> */}
+
                                             <div className="flex">
-                                              <button onClick={()=>{deleteItemFromCart(item,cart[item].name,1,cart[item].price,cart[item].size,cart[item].variant)}} type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                                              <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
                                             </div>
                                           </div>
                                         </div>

@@ -99,7 +99,7 @@ function Checkout({cart , subTotal, removeFromCart, addToCart }) {
     <ToastContainer position="bottom-center" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light"/>
 
     <div className="flex flex-col items-center border-b bg-white sm:flex-row sm:px-10 lg:px-20 xl:px-32">
-    <a href="#" className="text-2xl font-bold text-gray-800">Hunting_Store</a>
+    <a href="#" className="text-2xl font-bold text-gray-800">sneekpeeks</a>
     <div className="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
       <div className="relative">
         <ul className="relative flex w-full items-center justify-between space-x-2 sm:space-x-4">
