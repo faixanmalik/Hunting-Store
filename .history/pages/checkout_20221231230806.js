@@ -109,19 +109,19 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
           <li className="flex items-center space-x-3 text-left sm:space-x-4">
             <a className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-200 text-xs font-semibold text-emerald-700" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <path strokeLineCap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
             </a>
             <span className="font-semibold text-gray-900">Shop</span>
           </li>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            <path strokeLineCap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
           <li className="flex items-center space-x-3 text-left sm:space-x-4">
             <a className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-600 text-xs font-semibold text-white ring ring-gray-600 ring-offset-2" href="#">2</a>
             <span className="font-semibold text-gray-900">Shipping</span>
           </li>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            <path strokeLineCap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
           <li className="flex items-center space-x-3 text-left sm:space-x-4">
             <a className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-400 text-xs font-semibold text-white" href="#">3</a>
@@ -157,7 +157,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
       </div>
 
       <p className="mt-8 text-lg font-medium">Shipping Methods</p>
-      <form className="mt-5 grid gap-6">
+      {/* <form className="mt-5 grid gap-6">
         <div className="relative">
           <input className="peer hidden" id="radio_1" type="radio" name="radio" checked onChange={e => {}} />
           <span className="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
@@ -170,7 +170,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
           </label>
         </div>
         <div className="relative">
-          <input onChange={e => {}} className="peer hidden" id="radio_2" type="radio" name="radio" checked />
+          <input className="peer hidden" id="radio_2" type="radio" name="radio" checked />
           <span className="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
           <label className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" htmlFor="radio_2">
             <img className="w-14 object-contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRN420PXvQjOtSkJalqXFZ-FXrjBZH3eRvCsS1H80K&s" alt="" />
@@ -180,7 +180,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
             </div>
           </label>
         </div>
-      </form>
+      </form> */}
     </div>
 
 
@@ -197,7 +197,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
           <input onChange={handleChange} value={email} type="text" id="email" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="your.email@gmail.com" required />
           <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+              <path strokeLineCap="round" strokeLinejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
             </svg>
           </div>
         </div>
@@ -206,7 +206,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
           <input onChange={handleChange} value={cardHolder} type="text" id="cardHolder" name="cardHolder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Your full name here" required />
           <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
+              <path strokeLineCap="round" strokeLinejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
             </svg>
           </div>
         </div>
