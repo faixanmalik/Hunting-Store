@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 
-import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
-
-
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -143,9 +140,8 @@ function Checkout({cart , subTotal, removeFromCart, addToCart }) {
           <div className="flex w-full flex-col px-4 py-4">
             <span className="font-semibold">{cart[item].name}</span>
             <span className="float-right text-gray-400">({cart[item].size}/{cart[item].variant})</span>
-            <div className='flex'>
+            <div>
               <p className="text-lg font-bold">${cart[item].price}</p>
-              <p className="flex text-md ml-auto">Qty: <AiFillMinusCircle onClick={()=>{removeFromCart(item,cart[item].name,1,cart[item].price,cart[item].size,cart[item].variant)}} className='my-auto ml-2 text-lg cursor-pointer'/> <span className='mx-2'>{cart[item].qty}</span> <AiFillPlusCircle onClick={()=>{addToCart(item,cart[item].name,1,cart[item].price,cart[item].size,cart[item].variant)}} className='my-auto text-lg cursor-pointer'/></p>
             </div>
           </div>
         </div>

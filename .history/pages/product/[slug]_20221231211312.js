@@ -80,8 +80,8 @@ const Slug = ({addToCart , product , variants}) => {
               </div>
               <div className="flex ml-6 items-center">
                 <span className="mr-3">Size</span>
-                <div className="relative">
-                  <select value={size} onChange={(e)=>{refresh(e.target.value , color)}} className="rounded-md border pl-2 appearance-none py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base l-3 pr-10">
+                <div className="relative mx-auto">
+                  <select value={size} onChange={(e)=>{refresh(e.target.value , color)}} className="rounded border appearance-none py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base l-3 pr-10">
                     {Object.keys(variants[color]).includes('S') && <option value={'S'}>S</option>}
                     {Object.keys(variants[color]).includes('M') && <option value={'M'}>M</option>}
                     {Object.keys(variants[color]).includes('L') && <option value={'L'}>L</option>}

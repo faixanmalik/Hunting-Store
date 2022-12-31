@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 
-import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
-
-
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -145,7 +142,7 @@ function Checkout({cart , subTotal, removeFromCart, addToCart }) {
             <span className="float-right text-gray-400">({cart[item].size}/{cart[item].variant})</span>
             <div className='flex'>
               <p className="text-lg font-bold">${cart[item].price}</p>
-              <p className="flex text-md ml-auto">Qty: <AiFillMinusCircle onClick={()=>{removeFromCart(item,cart[item].name,1,cart[item].price,cart[item].size,cart[item].variant)}} className='my-auto ml-2 text-lg cursor-pointer'/> <span className='mx-2'>{cart[item].qty}</span> <AiFillPlusCircle onClick={()=>{addToCart(item,cart[item].name,1,cart[item].price,cart[item].size,cart[item].variant)}} className='my-auto text-lg cursor-pointer'/></p>
+              <p className="text-md mx-auto">Qty: {cart[item].qty} <AiFillMinusCircle onClick={()=>{removeFromCart(item,cart[item].name,1,cart[item].price,cart[item].size,cart[item].variant)}} className='my-auto cursor-pointer'/> <span className='mx-3'>{cart[item].qty}</span> <AiFillPlusCircle onClick={()=>{addToCart(item,cart[item].name,1,cart[item].price,cart[item].size,cart[item].variant)}} className='my-auto cursor-pointer'/></p>
             </div>
           </div>
         </div>
