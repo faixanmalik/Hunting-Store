@@ -11,7 +11,7 @@ export default function Home() {
         <meta name="description" content="Hunting_Store" />
         <link rel="icon" href="/favicon.ico" />
 
-        {/* for google adds */}
+        {/* for google addsence */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4236387827342703"crossorigin="anonymous"></script>
       </Head>
 

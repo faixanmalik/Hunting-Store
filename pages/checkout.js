@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { useRouter } from 'next/router';
 import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
 
 
@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
   
-
+  const router = useRouter()
   // const [products, setProducts] = useState(JSON.parse(JSON.stringify(cart)))
   const products = cart
   const [email, setEmail] = useState('')
@@ -62,7 +62,6 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
     
     // fetch the data from form to makes a file in local system
     const data = { email, cardHolder, cardNumber, cardExpiry, cardCvc, products , streetAddress, state, zip };
-
       let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/order`, {
       method: 'POST',
       headers: {
@@ -71,6 +70,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
       body: JSON.stringify(data),
     })
       let response = await res.json()
+        router.push(`${process.env.NEXT_PUBLIC_HOST}/order`)
         setEmail('')
         setCardHolder('')
         setCardNumber('')
