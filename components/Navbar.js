@@ -13,7 +13,6 @@ function classNames(...classes) {
 
 function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
   const [open, setOpen] = useState(false);
-  console.log(cart)
 
   return (
     <>
