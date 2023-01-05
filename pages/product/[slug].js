@@ -98,7 +98,7 @@ const Slug = ({addToCart , product , variants}) => {
             </div>
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">${product.price}</span>
-              <button onClick={()=>{ addcart() , addToCart(slug, product.title , 1 , product.price, size, color )}} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Add to Cart</button>
+              <button onClick={()=>{ addcart() , addToCart(slug, product.title, 1 , product.price, product.img, size, color )}} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Add to Cart</button>
               <ToastContainer position="bottom-center" autoClose={2000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light"/>
 
               {/* Wishlist */}

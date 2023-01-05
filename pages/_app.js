@@ -2,10 +2,8 @@ import { useState , useEffect } from 'react'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import '../styles/globals.css'
-
 // React top loading bar
 import LoadingBar from 'react-top-loading-bar'
-
 // React Toastify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,6 +21,7 @@ function MyApp({ Component, pageProps }) {
   const [subTotal, setSubTotal] = useState(0)
   const [user, setUser] = useState({value: null})
   const [key, setKey] = useState(0)
+
 
 
   //  react top loading bar
@@ -82,13 +81,13 @@ function MyApp({ Component, pageProps }) {
 
 
   // Add to Cart function like increase quantity of items in cart
-  const addToCart = (itemCode, name, qty, price, size, variant) =>{
+  const addToCart = (itemCode, name, qty, price, img , size, variant) =>{
     let newCart = cart;
     if(itemCode in cart){
       newCart[itemCode].qty= cart[itemCode].qty + qty;
     }
     else{
-      newCart[itemCode]= {qty:1, name, price, size, variant}   
+      newCart[itemCode]= {qty:1, name, price, img, size, variant}   
     }
     setCart(newCart);
     saveCart(newCart);
@@ -97,7 +96,7 @@ function MyApp({ Component, pageProps }) {
 
 
   // Remove From Cart function like decrease quantity of items in cart
-  const removeFromCart = (itemCode, name, qty, price, size, variant) =>{
+  const removeFromCart = (itemCode, name , price, size, variant) =>{
     let newCart = cart;
     if(itemCode in cart){
       newCart[itemCode].qty= cart[itemCode].qty - qty;
@@ -112,7 +111,7 @@ function MyApp({ Component, pageProps }) {
 
 
   // Delet Item From Cart function like delete one item in cart
-  const deleteItemFromCart = (itemCode, name, qty, price, size, variant) =>{
+  const deleteItemFromCart = (itemCode, name , qty, price, size, variant) =>{
     let newCart = cart;
     if(itemCode in cart){
       delete newCart[itemCode];
