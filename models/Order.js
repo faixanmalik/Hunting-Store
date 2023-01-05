@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
+    orderId:{type: Number, required: true, default: Math.floor(Math.random() * 100000000)},
     email:{type: String, required: true},
     cardHolder:{type: String, required: true},
     cardNumber:{type: Number, required: true},

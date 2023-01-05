@@ -96,7 +96,7 @@ function MyApp({ Component, pageProps }) {
 
 
   // Remove From Cart function like decrease quantity of items in cart
-  const removeFromCart = (itemCode, name , price, size, variant) =>{
+  const removeFromCart = (itemCode, name, qty , price, size, variant) =>{
     let newCart = cart;
     if(itemCode in cart){
       newCart[itemCode].qty= cart[itemCode].qty - qty;
