@@ -7,7 +7,6 @@ function MyOrder ({ subTotal , order }) {
   
 
   const product = order.products;
-
   
 
   return (
@@ -41,7 +40,7 @@ function MyOrder ({ subTotal , order }) {
        
         
         <div className="flex">
-          <span className="title-font font-medium text-2xl text-gray-900">${subTotal}</span>
+          <span className="title-font font-medium text-2xl text-gray-900">${subTotal+2}</span>
           <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Track Order</button>
         </div>
 
@@ -62,7 +61,7 @@ function MyOrder ({ subTotal , order }) {
           await mongoose.connect(process.env.MONGO_URI)
         }
         let order = await Order.findById(context.query.id)
-      
+        
         // Pass data to the page via props
         return {
            props: { order: JSON.parse(JSON.stringify(order)) } 

@@ -12,6 +12,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
   const router = useRouter()
   // const [products, setProducts] = useState(JSON.parse(JSON.stringify(cart)))
   const products = cart
+  const amount = subTotal+2
   const [email, setEmail] = useState('')
   const [cardHolder, setCardHolder] = useState('')
   const [cardNumber, setCardNumber] = useState('')
@@ -20,7 +21,6 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
   const [streetAddress, setStreetAddress] = useState('')
   const [state, setState] = useState('')
   const [zip, setZip] = useState('')
-
 
 
   const handleChange = (e) => {
@@ -60,7 +60,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
 
     
     // fetch the data from form to makes a file in local system
-    const data = { email, cardHolder, cardNumber, cardExpiry, cardCvc, products , streetAddress, state, zip };
+    const data = { email, cardHolder, cardNumber, cardExpiry, cardCvc, products , amount , streetAddress, state, zip };
       let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/order`, {
       method: 'POST',
       headers: {
@@ -69,7 +69,11 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
       body: JSON.stringify(data),
     })
       let response = await res.json()
-      // console.log(response)
+      console.log(response)
+
+      setTimeout(() => {
+        router.push(`${process.env.NEXT_PUBLIC_HOST}/order?id=${response.id}`)
+      }, 1000);      
 
         setEmail('')
         setCardHolder('')

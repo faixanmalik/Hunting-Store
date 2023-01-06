@@ -1,9 +1,11 @@
-import { React, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 
 function MyOrder () {
 
+  const [orders, setOrders] = useState([])
   const router = useRouter
 
   useEffect(() => {
@@ -18,7 +20,7 @@ function MyOrder () {
         body: JSON.stringify({ token: localStorage.getItem('token') }),
         })
         let response = await res.json()
-        console.log(response)
+        setOrders(response.orders)
       }
 
     if(!localStorage.getItem('token')){
@@ -30,49 +32,50 @@ function MyOrder () {
       
   }, [])
   
-
+  console.log(orders)
   return (
-    <section className="text-gray-600 body-font overflow-hidden">
-  <div className="container px-5 py-24 mx-auto">
-    <div className="lg:w-4/5 mx-auto flex flex-wrap">
-      <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
-        <h2 className="text-sm title-font text-gray-500 tracking-widest">Hunting_Store</h2>
-
-      
-        <h1 className="text-gray-900 text-3xl title-font font-medium">Order Id: #</h1>
-        <p className="leading-relaxed mb-4">Your Order has been placed!</p>
-        <div className="flex mb-4">
-          <a className="flex-grow text-center text-indigo-500 border-b-2 border-gray-300 py-2 text-lg font-medium px-1">Products</a>
-          <a className="flex-grow text-center text-indigo-500 border-b-2 border-gray-300 py-2 text-lg font-medium px-1">Quantity</a>
-          <a className="flex-grow text-center text-indigo-500 border-b-2 border-gray-300 py-2 text-lg font-medium px-1">Item Total</a>
-        </div>
-
-
-        <div className='mb-10'>
-
-        {/* {Object.keys(product).map((item)=>{
-          return <div key={item} className="flex w-full border-b-2 border-gray-200 py-2">
-            <div className="w-1/3 text-center font-medium text-gray-500">{product[item].name} ( {product[item].size}/{product[item].variant} )</div>  
-            <div className="w-1/3 text-center font-medium text-gray-900">{product[item].qty}</div>
-            <div className="w-1/3 text-center font-medium text-gray-900">${product[item].price}</div>
-          </div>})}  */}
-          
-        </div>
-        
-       
-        
-        <div className="flex">
-          <span className="title-font font-medium text-2xl text-gray-900">$</span>
-          <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Track Order</button>
-        </div>
+    <section class="text-gray-600 body-font">
+  <div class="container px-5 py-16 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">My Orders:</h1>
+    </div>
+    <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+      <table class="table-auto w-full text-left whitespace-no-wrap">
+        <thead>
+          <tr>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">Order Id:</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Name</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Price</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Details</th>
+          </tr>
+        </thead>
 
 
 
-      </div>
-      <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400"/>
+
+        <tbody>
+
+
+          {orders.map((item)=>{
+            return <tr key={item._id}>
+            <td class="px-4 py-3">#{item.orderId}</td>
+            <td class="px-4 py-3">{item.cardHolder}</td>
+            <td class="px-4 py-3">{item.amount}</td>
+            <td class="px-4 py-3">
+              <Link href={`/order?id=${orders._id}`} className='text-blue-600 underline cursor-pointer' >Details</Link>
+            </td>
+          </tr>
+          })}
+
+         
+        </tbody>
+      </table>
+    </div>
+    <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
+      <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
     </div>
   </div>
-    </section>
+</section>
   )
       }
 
