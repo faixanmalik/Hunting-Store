@@ -5,9 +5,8 @@ import mongoose from 'mongoose'
 
 function MyOrder ({ subTotal , order }) {
   
-
   const product = order.products;
-  
+  const totalAmount = order.amount;
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
@@ -40,7 +39,7 @@ function MyOrder ({ subTotal , order }) {
        
         
         <div className="flex">
-          <span className="title-font font-medium text-2xl text-gray-900">${subTotal+2}</span>
+          <span className="title-font font-medium text-2xl text-gray-900">${totalAmount}</span>
           <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Track Order</button>
         </div>
 
