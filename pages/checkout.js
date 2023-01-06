@@ -5,14 +5,9 @@ import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-import Order from '../models/Order';
-import mongoose from 'mongoose'
 
+function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
 
-
-function Checkout({ cart , subTotal, removeFromCart, addToCart, order }) {
-
-  console.log(order._id)
 
   const router = useRouter()
   // const [products, setProducts] = useState(JSON.parse(JSON.stringify(cart)))
@@ -74,13 +69,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart, order }) {
       body: JSON.stringify(data),
     })
       let response = await res.json()
-      console.log(response)   
-
-      setTimeout((_id) => {
-        router.push(`${process.env.NEXT_PUBLIC_HOST}/order?id=${order._id}`);
-      }, 1000);
-      
-      
+      // console.log(response)
 
         setEmail('')
         setCardHolder('')
@@ -99,12 +88,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart, order }) {
             toast.error(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
         }
 
-
   }
-
-
-
-
 
 
 
@@ -259,23 +243,10 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart, order }) {
       </form>
     </div>
     </div>
-  </div>
+    </div>
   
   )
 }
 
-
-
-export async function getServerSideProps(context) {
-  if (!mongoose.connections[0].readyState){
-    await mongoose.connect(process.env.MONGO_URI)
-  }
-  let orders = await Order.findOne(context.query.id)
-
-  // Pass data to the page via props
-  return {  
-     props: { order: JSON.parse(JSON.stringify(orders)) } 
-    }
-  }
 
 export default Checkout

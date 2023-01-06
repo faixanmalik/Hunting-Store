@@ -12,10 +12,10 @@ const handler = async (req,res)=>{
 
         if (user){
             // Decryptossword
-            var bytes  = CryptoJS.AES.decrypt(user.password, 'secretkey123');
+            var bytes  = CryptoJS.AES.decrypt(user.password, process.env.CRYPTOJS_SECRET);
             var encryptedPassword = bytes.toString(CryptoJS.enc.Utf8);
             if (req.body.email === user.email && req.body.password === encryptedPassword){
-                var token = jwt.sign({ email:user.email, name:user.name}, 'secretkey123');
+                var token = jwt.sign({ email:user.email, name:user.name}, process.env.JWT_SECRET);
                 res.status(200).json({ success: true, message: "Succesfully LogIn!", token })
             }
             else{

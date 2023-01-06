@@ -52,21 +52,17 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
                 <Menu.Items className="absolute md:right-0 z-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <div className="py-1">
                     <Menu.Item>
-                      {({ active }) => (
-                        <a href="#" className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm' )}>Account settings</a>
-                      )}
+                      {({ active }) => ( <Link href={'/myaccount'} className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm' )}>Account settings</Link>)}
                     </Menu.Item>
                     <Menu.Item>
-                      {({ active }) => (<Link href={'/order'} className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')}>Orders</Link>)}
+                      {({ active }) => (<Link href={'/orders'} className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')}>My Orders</Link>)}
                     </Menu.Item>
                     <Menu.Item>
                       {({ active }) => (<a href="#" className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')}>License</a>)}
                     </Menu.Item>
                     <div>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <button onClick={logout}  className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full px-4 py-2 text-left text-sm')}>Log Out</button>
-                        )}
+                      <Menu.Item> 
+                        {({ active }) => (<button onClick={logout}  className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full px-4 py-2 text-left text-sm')}>Log Out</button>)}
                       </Menu.Item>
                     </div>
                   </div>
@@ -178,10 +174,6 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
               </Dialog>
             </Transition.Root>
           </div>
-
-
-
-
 
         </div>
       </header>

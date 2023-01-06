@@ -2,8 +2,13 @@ import React from 'react'
 import Order from '../models/Order';
 import mongoose from 'mongoose'
 
-function MyOrder ({ subTotal, cart, order }) {
 
+function MyOrder ({ subTotal , order }) {
+  
+
+  const product = order.products;
+
+  
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
@@ -24,11 +29,11 @@ function MyOrder ({ subTotal, cart, order }) {
 
         <div className='mb-10'>
 
-        {Object.keys(cart).map((item)=>{
+        {Object.keys(product).map((item)=>{
           return <div key={item} className="flex w-full border-b-2 border-gray-200 py-2">
-            <div className="w-1/3 text-center font-medium text-gray-500">{cart[item].name} ( {cart[item].size}/{cart[item].variant} )</div>  
-            <div className="w-1/3 text-center font-medium text-gray-900">{cart[item].qty}</div>
-            <div className="w-1/3 text-center font-medium text-gray-900">${cart[item].price}</div>
+            <div className="w-1/3 text-center font-medium text-gray-500">{product[item].name} ( {product[item].size}/{product[item].variant} )</div>  
+            <div className="w-1/3 text-center font-medium text-gray-900">{product[item].qty}</div>
+            <div className="w-1/3 text-center font-medium text-gray-900">${product[item].price}</div>
           </div>})} 
           
         </div>
@@ -52,17 +57,17 @@ function MyOrder ({ subTotal, cart, order }) {
 
 
 
-export async function getServerSideProps(context) {
-  if (!mongoose.connections[0].readyState){
-    await mongoose.connect(process.env.MONGO_URI)
-  }
-  let orders = await Order.findById(context.query.id)
-
-  // Pass data to the page via props
-  return {  
-     props: { order: JSON.parse(JSON.stringify(orders)) } 
-    }
-  }
+      export async function getServerSideProps(context) {
+        if (!mongoose.connections[0].readyState){
+          await mongoose.connect(process.env.MONGO_URI)
+        }
+        let order = await Order.findById(context.query.id)
+      
+        // Pass data to the page via props
+        return {
+           props: { order: JSON.parse(JSON.stringify(order)) } 
+          }
+      }
   
 
 export default MyOrder
