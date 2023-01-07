@@ -1,8 +1,9 @@
 import React from 'react'
-import Carosel from '../Components/Carosel'
-import Team from '../Components/Team'
-import Testimonials from '../Components/Testimonials'
-import Statics from '../Components/Statics'
+import Carosel from '../components/Carosel'
+import Team from '../components/Team'
+import Statics from '../components/Statics'
+import Testimonials from '../components/Testimonials'
+
 
 
 function About() {

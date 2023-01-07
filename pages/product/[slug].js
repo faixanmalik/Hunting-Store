@@ -122,6 +122,7 @@ const Slug = ({addToCart , product , variants}) => {
 
 export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState){
+    mongoose.set("strictQuery", false);
     await mongoose.connect(process.env.MONGO_URI)
   }
   let product = await Product.findOne({slug: context.query.slug})

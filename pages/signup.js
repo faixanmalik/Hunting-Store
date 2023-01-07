@@ -91,7 +91,7 @@ function Signup() {
 
 
       <div className="bg-grey-lighter min-h-screen flex flex-col py-20">
-        <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+        <div className="container min-h-screen max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
           <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
             <h1 className="mb-8 text-3xl text-center">Sign up</h1>
             <input type="text" onChange={handleChange} value={firstname} className="bg-gray-100 bg-opacity-50 mb-4 w-full rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 p-3 resize-none leading-6 transition-colors duration-200 ease-in-out" name="firstname" placeholder="First Name"/>

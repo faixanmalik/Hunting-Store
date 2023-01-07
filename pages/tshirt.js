@@ -8,7 +8,7 @@ function Tshirt({ product }) {
 
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto min-h-screen max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Products</h2>
 
 
@@ -38,10 +38,10 @@ function Tshirt({ product }) {
 
     export async function getServerSideProps() {
       if (!mongoose.connections[0].readyState){
+        mongoose.set("strictQuery", false);
         await mongoose.connect(process.env.MONGO_URI)
       }
       let products = await Product.find({category: 'tshirts'})
-    
       let tshirts= {}
         for (let item of products){
             if (item.title in tshirts) {
@@ -62,14 +62,15 @@ function Tshirt({ product }) {
     
             }
         };
+
+
+        
     
-    
-    
-    
-     
       // Pass data to the page via props
       return {
          props: { product: JSON.parse(JSON.stringify(tshirts)) } 
         }
     }
+
+
 export default Tshirt

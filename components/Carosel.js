@@ -22,4 +22,4 @@ function Carosel() {
   )
 }
 
-export default Carosel
+export default Carosel;

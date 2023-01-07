@@ -1,16 +1,25 @@
-import React from 'react'
+import {React, useEffect} from 'react'
 import Order from '../models/Order';
 import mongoose from 'mongoose'
+import { useRouter } from 'next/router';
 
 
-function MyOrder ({ subTotal , order }) {
-  
+function MyOrder ({ order, clearCart }) {
+
+  const router = useRouter();
   const product = order.products;
   const totalAmount = order.amount;
 
+  useEffect(() => {
+   if(router.query.clearCart == 1){
+     clearCart();
+   }
+  }, [])
+  
+
   return (
     <section className="text-gray-600 body-font overflow-hidden">
-  <div className="container px-5 py-24 mx-auto">
+  <div className="container min-h-screen px-5 py-24 mx-auto">
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
       <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
         <h2 className="text-sm title-font text-gray-500 tracking-widest">Hunting_Store</h2>
@@ -57,6 +66,7 @@ function MyOrder ({ subTotal , order }) {
 
       export async function getServerSideProps(context) {
         if (!mongoose.connections[0].readyState){
+          mongoose.set("strictQuery", false);
           await mongoose.connect(process.env.MONGO_URI)
         }
         let order = await Order.findById(context.query.id)

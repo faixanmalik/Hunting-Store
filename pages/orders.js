@@ -2,8 +2,7 @@ import { React, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-
-function MyOrder () {
+function MyOrders () {
 
   const [orders, setOrders] = useState([])
   const router = useRouter
@@ -34,7 +33,7 @@ function MyOrder () {
   
   return (
     <section className="text-gray-600 body-font">
-  <div className="container px-5 py-16 mx-auto">
+  <div className="container min-h-screen px-5 py-16 mx-auto">
     <div className="flex flex-col text-center w-full mb-20">
       <h1 className="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">My Orders:</h1>
     </div>
@@ -78,4 +77,4 @@ function MyOrder () {
   )
       }
 
-export default MyOrder
+export default MyOrders

@@ -4,10 +4,12 @@ import Product from '../models/Product';
 import mongoose from "mongoose";
 
 function Hoodies({ product }) {
-  
+
+
+
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="container min-h-screen mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Products</h2>
 
 
@@ -34,6 +36,7 @@ function Hoodies({ product }) {
 
     export async function getServerSideProps() {
       if (!mongoose.connections[0].readyState){
+        mongoose.set("strictQuery", false);
         await mongoose.connect(process.env.MONGO_URI)
       }
       let products = await Product.find({category: 'hoodies'})

@@ -16,6 +16,8 @@ export default function Home() {
       <Hero/>
       <Statics/>
       <Testimonials/>
+
+      
     </div>
   )
 }

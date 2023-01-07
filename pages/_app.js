@@ -47,9 +47,9 @@ function MyApp({ Component, pageProps }) {
       localStorage.clear();
     }
 
-    let token = localStorage.getItem("token");
-    if( token ){
-      setUser({value: token});
+    let myUser = JSON.parse(localStorage.getItem("myUser"));
+    if( myUser ){
+      setUser({value: myUser.token , email: myUser.email });
       setKey(Math.random());
     }
 
@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps }) {
 
   // Logout function
   const logout = ()=>{
-    localStorage.removeItem("token");
+    localStorage.removeItem("myUser");
     setUser({value:null});
     setKey(Math.random());
     router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
