@@ -5,7 +5,7 @@ import Link from 'next/link';
 function MyOrders () {
 
   const [orders, setOrders] = useState([])
-  const router = useRouter
+  const router = useRouter();
 
   useEffect(() => {
 
@@ -16,13 +16,13 @@ function MyOrders () {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ token: localStorage.getItem('token') }),
+        body: JSON.stringify({ token: JSON.parse(localStorage.getItem('myUser')).token }),
         })
         let response = await res.json()
         setOrders(response.orders)
       }
 
-    if(!localStorage.getItem('token')){
+    if(!localStorage.getItem('myUser')){
       router.push('/')  
     }
     else{
