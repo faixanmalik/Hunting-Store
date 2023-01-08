@@ -79,11 +79,10 @@ function Login() {
 
   return (
    <> 
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
+  {/* React tostify */}
+  <ToastContainer position="bottom-center" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable theme="light"/>
+    <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-4">
         <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
-
-        {/* React tostify */}
-        <ToastContainer position="bottom-center" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable theme="light"/>
 
             <h1 className="text-center text-2xl font-bold text-blue-800 mb-5">Hunting_Store</h1>  
             <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
@@ -96,7 +95,7 @@ function Login() {
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
                 <input onChange={handleChange} value={password} name="password" id='password' type="password" className="bg-gray-100 bg-opacity-50 resize-none text-gray-700 outline-none border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full transition-colors duration-200 ease-in-out" />
  
-                <button type="sunmit" className="w-full text-center py-3 bg-blue-700 text-white rounded-xl font-semibold hover:bg-green-dark focus:outline-none my-1">
+                <button type="sunmit" className="w-full text-center py-3 bg-blue-700 hover:bg-blue-800 text-white rounded-xl font-semibold hover:bg-green-dark focus:outline-none my-1">
                     <span className="inline-block mr-2">Login</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 inline-block"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </button>

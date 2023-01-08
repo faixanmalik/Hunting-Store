@@ -12,9 +12,12 @@ import { GiClothes } from 'react-icons/gi';
 import { SlCup } from 'react-icons/sl';
 
 
+
 function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
 
   const [open, setOpen] = useState(false);
+  
+  
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -74,10 +77,10 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
     <>
 
   <Popover className="relative bg-white">
-      <div className="mx-auto max-w-full px-10">
+      <div className="mx-auto max-w-full">
 
-        <nav className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-        <div className="flex justify-start pl-4 md:pl-10 mr-auto lg:w-0 lg:flex-1">
+        <nav className="flex items-center md:-mr-3 justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+        <div className="flex justify-start pl-10 mr-auto lg:w-0 lg:flex-1">
             <Link href={'/'}>
               <span className="sr-only">Your Company</span>
               <img className="h-8 w-auto sm:h-10 " src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
@@ -167,7 +170,7 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
       </Menu>
             
       {!user.value && <button className=" bg-blue-700 text-white rounded-xl font-semibold border-0 py-2 px-7 focus:outline-none hover:bg-blue-800 text-base">
-            <Link href={"/login"}>Log In</Link>
+            <Link href={"/signup"}>Sign Up</Link>
           </button>}
       <AiOutlineShoppingCart onClick={() => setOpen(true)} className="text-xl cursor-pointer"/>
     </div>
@@ -256,8 +259,9 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
     </div>
 
 
-  </nav>
-  </div>
+        </nav>
+
+      </div>
 
 
      {/* This is for mobile view */}
@@ -267,11 +271,7 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt="Your Company"
-                  />
+                  <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"/>
                 </div>
                 <div className="-mr-2">
                   <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -283,11 +283,7 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
               <div className="mt-6">
                 <nav className="grid gap-y-8">
                   {products.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
-                    >
+                    <Link key={item.name} href={item.href} className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">
                       <item.icon className="h-6 w-6 flex-shrink-0 text-indigo-600" aria-hidden="true" />
                       <span className="ml-3 text-base font-medium text-gray-900">{item.name}</span>
                     </Link>
@@ -316,19 +312,20 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
               </div>
               <div>
                 <Link
-                  href="#"
+                  href={'/signup'}
                   className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                 >
                   Sign up
                 </Link>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing customer?{' '}
-                  <Link href="#" className="text-indigo-600 hover:text-indigo-500">
+                  <Link href={'/login'} className="text-indigo-600 hover:text-indigo-500">
                     Sign in
                   </Link>
                 </p>
               </div>
             </div>
+
           </div>
         </Popover.Panel>
       </Transition>
