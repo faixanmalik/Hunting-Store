@@ -33,7 +33,6 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
   
 
   const handleChange = (e) => {
-    console.log(user, email)
     if ( e.target.name === 'email') {
       setEmail(e.target.value)
     }

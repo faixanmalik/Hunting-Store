@@ -14,9 +14,8 @@ const handler = async (req,res)=>{
             }
         else{
             const {firstname, lastname, email} = req.body;
-            let newuser = new User( {firstname, lastname, email , password:CryptoJS.AES.encrypt(req.body.password, process.env.CRYPTOJS_SECRET).toString()});
+            let newuser = new User( {firstname, lastname, email , password: CryptoJS.AES.encrypt(req.body.password, process.env.CRYPTOJS_SECRET).toString()});
             await newuser.save();
-
             res.status(200).json({ success: true, message: "New User added Succesfully!"})
             }
         }

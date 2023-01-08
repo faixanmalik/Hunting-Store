@@ -26,43 +26,6 @@ function Signup() {
   const [confirmpassword, setConfirmpassword] = useState('')
 
 
-  const submit = async (e) => {
-    e.preventDefault()
-    
-
-    // fetch the data from form to makes a file in local system
-    const data = { firstname, lastname, email, password, confirmpassword };
-
-    let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/signup`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-    let response = await res.json();
-      if (response.success === true) {
-        toast.success(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
-        setTimeout(() => {
-          router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
-        }, 1500);
-      }
-      else{
-        toast.error(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
-        setTimeout(() => {
-          router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
-        }, 1500);
-      }
-
-        setFirstname('')
-        setLastname('')
-        setEmail('')
-        setPassword('')
-        setConfirmpassword('')
-  }
-
-
-
   const handleChange = (e) => {
     if (e.target.name === 'firstname') {
       setFirstname(e.target.value)
@@ -81,13 +44,59 @@ function Signup() {
     }
   }
 
+
+
+
+  const submit = async (e) => {
+    e.preventDefault()
+    
+
+    // fetch the data from form to makes a file in local system
+    const data = { firstname, lastname, email, password, confirmpassword };
+    if( password !== confirmpassword ){
+      document.getElementById('checkPassword').innerHTML = "Your Password is not Match!"
+    }
+    else{
+      document.getElementById('checkPassword').innerHTML = ""
+      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      let response = await res.json();
+        if (response.success === true) {
+          toast.success(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
+          setTimeout(() => {
+            router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
+          }, 1500);
+        }
+        else{
+          toast.error(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
+          setTimeout(() => {
+            router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
+          }, 1500);
+        }
+
+        setFirstname('')
+        setLastname('')
+        setEmail('')
+        setPassword('')
+        setConfirmpassword('')
+
+    }
+  }
+
+
+
   return (
 
 
     <form action="POST" onSubmit={submit}>
 
-{/* React tostify */}
-<ToastContainer position="bottom-center" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light"/>
+    {/* React tostify */}
+    <ToastContainer position="bottom-center" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light"/>
 
 
       <div className="bg-grey-lighter min-h-screen flex flex-col py-20">
@@ -98,10 +107,10 @@ function Signup() {
             <input type="text" onChange={handleChange} value={lastname} className="bg-gray-100 bg-opacity-50 mb-4 w-full rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 p-3 resize-none leading-6 transition-colors duration-200 ease-in-out" name="lastname" placeholder="Last Name"/>
             <input type="text" onChange={handleChange} value={email} className="bg-gray-100 bg-opacity-50 mb-4 w-full rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 p-3 resize-none leading-6 transition-colors duration-200 ease-in-out" name="email" placeholder="Email"/>
             <input type="password" onChange={handleChange} value={password} className="bg-gray-100 bg-opacity-50 mb-4 w-full rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 p-3 resize-none leading-6 transition-colors duration-200 ease-in-out" name="password" placeholder="Password"/>
-            <input type="password" onChange={handleChange} value={confirmpassword} className="bg-gray-100 bg-opacity-50 mb-4 w-full rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 p-3 resize-none leading-6 transition-colors duration-200 ease-in-out" name="confirmpassword" placeholder="Confirm Password"/>
+            <input type="password" onChange={handleChange} value={confirmpassword} className="bg-gray-100 bg-opacity-50 mb-1 w-full rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 p-3 resize-none leading-6 transition-colors duration-200 ease-in-out" name="confirmpassword" placeholder="Confirm Password"/>
+            <h1 id="checkPassword" className= 'text-sm text-red-600 '></h1>
 
-
-            <button type="submit" className="w-full text-center py-3 bg-blue-700 text-white rounded-xl font-semibold hover:bg-green-dark focus:outline-none my-1">Create Account</button>
+            <button type="submit" className="w-full mt-4 text-center py-3 bg-blue-700 text-white rounded-xl font-semibold hover:bg-green-dark focus:outline-none my-1">Create Account</button>
       
             <div className="text-center text-sm text-grey-dark mt-4">By signing up, you agree to the
               <a className="no-underline border-b border-grey-dark text-grey-dark" href="#">Terms of Service</a>{" "}and
