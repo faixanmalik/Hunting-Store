@@ -1,11 +1,12 @@
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import Product from '../../models/Product';
 import mongoose from "mongoose";
-import { useState } from 'react';
 
 // React Toastify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -16,17 +17,24 @@ const Slug = ({addToCart , product , variants}) => {
   const [color, setColor] = useState(product.color)
   const [size, setSize] = useState(product.size)
 
+  useEffect(() => {
+    setColor(product.color)
+    setSize(product.size)
+  }, [router.query])
+  
+  
   // React tostify
   const addcart = () => toast.success("Item is added in your Cart.!");
 
 
   const refresh = ( newSize , newColor ) => {
     let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newColor][newSize]['slug']}`;
-    window.location = url;
+    router.push(url)
   }
-  return <div>
-    <section className="text-gray-600 body-font overflow-hidden">
-      <div className="container px-5 py-24 mx-auto">
+
+
+  return <section className="text-gray-600 body-font overflow-hidden">
+      <div className="container px-5 py-10 mx-auto">
         <div className="lg:w-4/5 mx-auto justify-center flex flex-wrap">
           <img alt="ecommerce" className="lg:w-2/5 h-96 object-cover object-top rounded" src={product.img}/>
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -98,7 +106,7 @@ const Slug = ({addToCart , product , variants}) => {
             </div>
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">${product.price}</span>
-              <button onClick={()=>{ addcart() , addToCart(slug, product.title, 1 , product.price, product.img, size, color )}} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Add to Cart</button>
+              <button onClick={()=>{ addcart() , addToCart(slug, product.title, 1 , product.price, product.img, size, color )}} className="flex -mt-1 ml-auto bg-blue-700 text-white rounded-xl font-semibold border-0 py-3 px-6 focus:outline-none hover:bg-blue-800 text-sm md:text-base">Add to Cart</button>
               <ToastContainer position="bottom-center" autoClose={2000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light"/>
 
               {/* Wishlist */}
@@ -113,7 +121,6 @@ const Slug = ({addToCart , product , variants}) => {
         </div>
       </div>
     </section>
-  </div>
 }
 
 

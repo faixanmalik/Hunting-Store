@@ -2,8 +2,10 @@ import { useState , useEffect } from 'react'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import '../styles/globals.css'
+
 // React top loading bar
 import LoadingBar from 'react-top-loading-bar'
+
 // React Toastify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -34,7 +36,11 @@ function MyApp({ Component, pageProps }) {
     });
     router.events.on('routeChangeComplete', ()=>{
       setProgress(100);
-    });
+    }, []);
+
+
+    
+    
 
 
     try {
@@ -140,7 +146,7 @@ function MyApp({ Component, pageProps }) {
 
 
   return <>
-  <LoadingBar color='#007af' height={2} progress={progress} waitingTime={300} onLoaderFinished={() => setProgress(0)}/>
+  <LoadingBar color='#0216FD' height={3} progress={progress} waitingTime={300} onLoaderFinished={() => setProgress(0)}/>
   <Navbar key={key} user={user} logout={logout} cart={cart} deleteItemFromCart={deleteItemFromCart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} />
   <Component cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} deleteItemFromCart={deleteItemFromCart} clearCart={clearCart} subTotal={subTotal}  {...pageProps} />
   <Footer/>

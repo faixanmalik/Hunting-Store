@@ -74,10 +74,10 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
     <>
 
   <Popover className="relative bg-white">
-      <div className="mx-auto max-w-7xl pl-10">
+      <div className="mx-auto max-w-full px-10">
 
-        <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-        <div className="flex justify-start mr-auto lg:w-0 lg:flex-1">
+        <nav className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+        <div className="flex justify-start pl-4 md:pl-10 mr-auto lg:w-0 lg:flex-1">
             <Link href={'/'}>
               <span className="sr-only">Your Company</span>
               <img className="h-8 w-auto sm:h-10 " src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
@@ -137,9 +137,6 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
           </Popover.Group>
 
 
-
-
-      
     <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0 space-x-8 md:space-x-7">
       <Menu as="div" className="relative inline-block text-left">
           <div>
@@ -256,10 +253,10 @@ function Navbar({logout , user, cart, subTotal, deleteItemFromCart }) {
       </div>
       </Dialog>
     </Transition.Root>
-  </div>
+    </div>
 
 
-  </div>
+  </nav>
   </div>
 
 
