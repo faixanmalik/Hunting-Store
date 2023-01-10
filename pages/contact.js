@@ -29,7 +29,7 @@ function Contact() {
                 </div>
               </div>
               <div className="p-2 w-full">
-                <button className="flex mx-auto items-center bg-blue-700 text-white rounded-xl font-semibold border-0 py-3 px-10 focus:outline-none hover:bg-blue-800 text-lg mt-4 md:mt-0">Submit</button>
+                <button className="flex mx-auto items-center bg-indigo-600 text-white rounded-xl font-semibold border-0 py-3 px-10 focus:outline-none hover:bg-indigo-700 text-lg mt-4 md:mt-0">Submit</button>
               </div>
               <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
                 <a className="text-indigo-500">example@email.com</a>
