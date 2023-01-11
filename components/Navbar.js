@@ -6,12 +6,7 @@ import { BiUserCircle } from 'react-icons/bi';
 
 
 
-
-
-
-
-
-const navigation = {
+const products = {
   categories: [
     {
       id: 'Products',
@@ -112,7 +107,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                 <Tab.Group as="div" className="mt-2">
                   <div className="border-b border-indigo-600">
                     <Tab.List className="-mb-px flex space-x-8 px-4">
-                      {navigation.categories.map((category) => (
+                      {products.categories.map((category) => (
                         <Tab key={category.name} className={({ selected }) => classNames( selected ? 'text-indigo-600 border-indigo-600' : 'text-gray-900 border-transparent','flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium')}>
                           {category.name}
                         </Tab>
@@ -120,7 +115,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                     </Tab.List>
                   </div>
                   <Tab.Panels as={Fragment}>
-                    {navigation.categories.map((category) => (
+                    {products.categories.map((category) => (
                       <Tab.Panel key={category.name} className="space-y-10 px-4 pt-10 pb-8">
                         <div className="grid grid-cols-2 gap-x-4">
                           {category.featured.map((item) => (
@@ -160,7 +155,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                 </Tab.Group>
 
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
-                  {navigation.pages.map((page) => (
+                  {products.pages.map((page) => (
                     <div key={page.name} className="flow-root">
                       <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
                         {page.name}
@@ -214,7 +209,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
               {/* Flyout menus */}
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
                 <div className="flex h-full space-x-8">
-                  {navigation.categories.map((category) => (
+                  {products.categories.map((category) => (
                     <Popover key={category.name} className="flex">
                       {({ open }) => (
                         <>
@@ -277,7 +272,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                     </Popover>
                   ))}
 
-                  {navigation.pages.map((page) => (
+                  {products.pages.map((page) => (
                     <Link key={page.name} href={page.href} className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">{page.name}</Link>
                   ))}
 
@@ -304,7 +299,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                   </Menu.Button>
                 </div>
                 <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
-                <Menu.Items className="absolute md:right-0 z-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Items className="absolute right-0 z-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => ( <Link href={'/myaccount'} className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm' )}>Account settings</Link>)}
