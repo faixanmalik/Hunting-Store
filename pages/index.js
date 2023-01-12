@@ -7,7 +7,9 @@ import Promo from '../components/Promo'
 import Shop from '../components/Shop'
 import Shop2 from '../components/Shop2'
 import Statics from '../components/Statics'
+import Team from '../components/Team'
 import Testimonials from '../components/Testimonials'
+import OurServices from './ourservices'
 
 export default function Home() {
   return (
@@ -26,7 +28,9 @@ export default function Home() {
       <Shop2/>
       <Cta2/>
       <Statics/>
+      <OurServices/> 
       <Testimonials/>
+      <Team/>
       <Feedback/>
 
       

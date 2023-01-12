@@ -10,9 +10,9 @@ function About() {
   return (
     <div>
       <Carosel/>
-      <Team/>
       <Statics/>
       <Testimonials/>
+      <Team/>
     </div>
   )
 }
