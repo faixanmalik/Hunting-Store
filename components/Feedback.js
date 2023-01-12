@@ -78,7 +78,7 @@ function Feedback() {
       <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
         <div className="lg:w-1/2 px-6">
           <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
-          <p className="mt-1">Model Town near Arfa Karim Tower, Lahore</p>
+          <p className="mt-1">Model Town Near Arfa Karim Tower, Lahore</p>
         </div>
         <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
             <div>
@@ -109,7 +109,9 @@ function Feedback() {
             <label htmlFor="message" className="leading-7 text-sm text-gray-600">Message</label>
             <textarea onChange={handleChange} value={message} id="message" name="message" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
         </div>
-        <button type='submit' className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+        <button type="submit" className="w-full text-center py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold hover:bg-green-dark focus:outline-none my-1">
+          <span>Submit</span>
+        </button>
       </form>
 
 
