@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head';
 import Link from 'next/link'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -79,6 +80,10 @@ function Login() {
 
   return (
    <> 
+   <Head>
+      <title>Login_Hunting_Store</title>
+      <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+   </Head>
   {/* React tostify */}
   <ToastContainer position="bottom-center" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable theme="light"/>
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-4">
@@ -116,7 +121,7 @@ function Login() {
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 inline-block align-text-top">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
                         </svg>
-                        <Link href={"/forgotpassword"}><span className="inline-block ml-1">Forgot Password</span></Link>
+                        <Link href={"/forgot"}><span className="inline-block ml-1">Forgot Password</span></Link>
                     </button>
                 </div>
                 <div className="text-center sm:text-right whitespace-nowrap">

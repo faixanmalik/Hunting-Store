@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
 
@@ -14,6 +15,9 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
   const products = cart
   const amount = subTotal+2
   const [user, setUser] = useState({value: null})
+  const [firstname, setFirstname] = useState('')
+  const [lastname, setLastname] = useState('')
+  const [phoneno, setPhoneno] = useState('')
   const [email, setEmail] = useState('')
   const [cardHolder, setCardHolder] = useState('')
   const [cardNumber, setCardNumber] = useState('')
@@ -24,13 +28,39 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
   const [zip, setZip] = useState('')
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('myUser'))
-    if(user){
-      setUser(user)
-      setEmail(user.email)
+    console.log(firstname, lastname, phoneno, streetAddress, state, zip)
+    const myUser = JSON.parse(localStorage.getItem('myUser'))
+    if(myUser){
+      setUser(myUser)
+      setEmail(myUser.email)
+      fetchUser(myUser.token)
     }
   }, [])
   
+
+
+  const fetchUser = async(token) =>{
+    // fetch the data from form to makes a file in local system
+    const data = { token: token  };
+      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      let response = await res.json()
+
+      setFirstname(response.firstname)
+      setLastname(response.lastname)
+      setEmail(response.email)
+      setPhoneno(response.phoneno)
+      setState(response.state)
+      setStreetAddress(response.streetAddress)
+      setZip(response.zip)
+  }
+
+
 
   const handleChange = (e) => {
     if ( e.target.name === 'email') {
@@ -58,8 +88,6 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
       setZip(e.target.value)
     }
   }
-
-
 
 
 
@@ -104,10 +132,15 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
 
 
   return (
-    <div className='py-4 md:my-10'>
-
+    <>
+    <Head>
+      <title>Checkout_Hunting_Store</title>
+      <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+   </Head>
     {/* React tostify */}
     <ToastContainer position="bottom-center" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light"/>
+
+    <div className='py-4 md:my-10'>
 
     <div className="flex flex-col items-center border-b bg-white sm:flex-row sm:px-10 lg:px-20 xl:px-32">
     <a href="#" className="text-2xl font-bold text-gray-800">Hunting_Store</a>
@@ -192,13 +225,12 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
 
 
 
-
       <form method='POST' onSubmit={submit} className="">
         <label htmlFor="email" className="mt-4 mb-2 block text-sm font-medium">Email</label>
         <div className="relative">
 
 
-          {user.value ? <input value={user.email} type="text" id="email" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="your.email@gmail.com" required readOnly />
+          {user && user.token ? <input value={user.email} type="text" id="email" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="your.email@gmail.com" required readOnly />
            : <input onChange={handleChange} value={email} type="text" id="email" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="your.email@gmail.com" required />}
           
           <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
@@ -235,8 +267,8 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
           <div className="relative sm:w-7/12">
             <input onChange={handleChange} value={streetAddress} type="text" id="streetAddress" name="streetAddress" className="w-full rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Street Address" required />
           </div>
-          <input onChange={handleChange} value={state} type="text" id='state' name="state" className="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="State" required />
-          <input onChange={handleChange} value={zip} type="number" id='zip' name="zip" className="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="ZIP" required />
+          <input onChange={handleChange} value={state} type="text" id='state' name="state" className="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/4 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="State" required />
+          <input onChange={handleChange} value={zip} type="number" id='zip' name="zip" className=" flex-shrink-0 rounded-md border border-gray-200 pl-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="ZIP" required />
         </div>
 
       
@@ -259,6 +291,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
     </div>
     </div>
     </div>
+    </>
   
   )
 }

@@ -33,7 +33,12 @@ const Slug = ({addToCart , product , variants}) => {
   }
 
 
-  return <section className="text-gray-600 body-font overflow-hidden">
+  return <>
+  <Head>
+      <title>ProductDetail_Hunting_Store</title>
+      <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+   </Head>
+  <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-10 mx-auto">
         <div className="lg:w-4/5 mx-auto justify-center flex flex-wrap">
           <img alt="ecommerce" className="lg:w-2/5 h-96 object-cover object-top rounded" src={product.img}/>
@@ -121,6 +126,7 @@ const Slug = ({addToCart , product , variants}) => {
         </div>
       </div>
     </section>
+  </>
 }
 
 

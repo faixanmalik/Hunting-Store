@@ -1,14 +1,19 @@
 import React from 'react'
+import Head from 'next/head'
 
 function OurServices() {
   return (
-
+   <>
+   <Head>
+      <title>Ourservices_Hunting_Store</title>
+      <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+   </Head>
 <section className="pt-10 lg:pt-14 pb-12 lg:pb-10">
-   <div className="container">
+   <div className="container mx-auto">
       <div className="flex flex-wrap -mx-4">
          <div className="w-full px-4">
             <div className="text-center mx-auto mb-5 lg:mb-10 max-w-[510px]">
-               <span className="font-semibold text-lg text-primary mb-2 block">
+               <span className="font-semibold text-lg mb-2 block">
                Our Services
                </span>
                <h2 className=" font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4 " >
@@ -124,6 +129,7 @@ function OurServices() {
       </div>
    </div>
 </section>
+</>
   )
 }
 

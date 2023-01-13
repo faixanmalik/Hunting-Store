@@ -92,8 +92,13 @@ function Signup() {
 
   return (
 
-
+    <>
+    <Head>
+        <title>SignUp_Hunting_Store</title>
+        <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+    </Head>
     <form action="POST" onSubmit={submit}>
+    
 
     {/* React tostify */}
     <ToastContainer position="bottom-center" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light"/>
@@ -126,6 +131,7 @@ function Signup() {
         </div>
       </div>
     </form>
+    </>
   );
 }
 

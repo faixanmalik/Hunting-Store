@@ -1,4 +1,5 @@
 import {React, useEffect} from 'react'
+import Head from 'next/head';
 import Order from '../models/Order';
 import mongoose from 'mongoose'
 import { useRouter } from 'next/router';
@@ -18,6 +19,11 @@ function MyOrder ({ order, clearCart }) {
 
 
   return (
+    <>
+    <Head>
+      <title>Order_Hunting_Store</title>
+      <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+   </Head>
     <section className="text-gray-600 body-font overflow-hidden">
   <div className="container min-h-screen px-5 py-24 mx-auto">
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
@@ -59,6 +65,7 @@ function MyOrder ({ order, clearCart }) {
     </div>
   </div>
     </section>
+    </>
   )
       }
 

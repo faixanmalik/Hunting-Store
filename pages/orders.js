@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
@@ -32,6 +33,11 @@ function MyOrders () {
   }, [])
   
   return (
+    <>
+    <Head>
+      <title>Orders_Hunting_Store</title>
+      <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+   </Head>
     <section className="text-gray-600 body-font">
     <div className="container min-h-screen px-5 py-16 mx-auto">
       <div className="flex flex-col text-center w-full mb-20">
@@ -69,6 +75,7 @@ function MyOrders () {
       </div>
     </div>
     </section>
+    </>
   )
 }
 

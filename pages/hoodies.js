@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head';
 import Link from 'next/link'
 import Product from '../models/Product';
 import mongoose from "mongoose";
@@ -8,6 +9,11 @@ function Hoodies({ product }) {
 
 
   return (
+    <>
+    <Head>
+      <title>Hoodies_Hunting_Store</title>
+      <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+   </Head>
     <div className="bg-white">
       <div className="container min-h-screen mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Products</h2>
@@ -31,6 +37,7 @@ function Hoodies({ product }) {
         </div>
       </div>
     </div>
+    </>
       )
     }
 
