@@ -18,10 +18,12 @@ const Slug = ({addToCart , product , variants}) => {
   const [color, setColor] = useState(product.color)
   const [size, setSize] = useState(product.size)
 
-  useEffect(() => {
-    setColor(product.color)
-    setSize(product.size)
-  }, [router.query])
+
+    useEffect(() => {
+      setColor(product.color)
+      setSize(product.size)
+    }, [router.query])
+
   
   
 
@@ -41,8 +43,11 @@ const Slug = ({addToCart , product , variants}) => {
       <title>ProductDetails_Hunting_Store</title>
       <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
    </Head>
+
+
+
   <section className="text-gray-600 body-font overflow-hidden">
-      <div className="container px-5 py-10 mx-auto">
+      <div className="container min-h-screen px-5 py-10 mx-auto">
         <div className="lg:w-4/5 mx-auto justify-center flex flex-wrap">
           <img alt="ecommerce" className="lg:w-2/5 h-96 object-cover object-top rounded" src={product.img}/>
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -117,18 +122,21 @@ const Slug = ({addToCart , product , variants}) => {
               <button onClick={()=>{ addcart() , addToCart(slug, product.title, 1 , product.price, product.img, size, color )}} className="flex -mt-1 ml-auto bg-indigo-600 text-white rounded-xl font-semibold border-0 py-3 px-6 focus:outline-none hover:bg-indigo-700 text-sm md:text-base">Add to Cart</button>
               <ToastContainer position="bottom-center" autoClose={2000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light"/>
 
-              {/* Wishlist */}
+            
               <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                 <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
                   <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
                 </svg>
               </button>
-              
             </div>
           </div>
         </div>
       </div>
     </section>
+
+
+
+
   </>
 }
 
@@ -141,26 +149,26 @@ export async function getServerSideProps(context) {
     mongoose.set("strictQuery", false);
     await mongoose.connect(process.env.MONGO_URI)
   }
-  let product = await Product.findOne({slug: context.query.slug})
-  let variants = await Product.find({title: product.title , category: product.category})
 
-
-    let colorSizeSlug = {}
-    for (let item of variants){
-      if(Object.keys(colorSizeSlug).includes(item.color) ){
-        colorSizeSlug[item.color][item.size] = {slug: item.slug}
+    let product = await Product.findOne({slug: context.query.slug})
+    let variants = await Product.find({title: product.title , category: product.category})
+   
+      let colorSizeSlug = {}
+      for (let item of variants){
+        if(Object.keys(colorSizeSlug).includes(item.color) ){
+          colorSizeSlug[item.color][item.size] = {slug: item.slug}
+        }
+        else{
+          colorSizeSlug[item.color] = {}
+          colorSizeSlug[item.color][item.size] = {slug: item.slug}
+        }
       }
-      else{
-        colorSizeSlug[item.color] = {}
-        colorSizeSlug[item.color][item.size] = {slug: item.slug}
-      }
-    }
 
 
 
   // Pass data to the page via props
   return {
-     props: { product: JSON.parse(JSON.stringify(product)), variants: JSON.parse(JSON.stringify(colorSizeSlug)) } 
+      props: { product: JSON.parse(JSON.stringify(product)), variants: JSON.parse(JSON.stringify(colorSizeSlug)) } 
     }
 
   }

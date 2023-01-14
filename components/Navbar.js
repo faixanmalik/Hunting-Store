@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react'
 import Link from 'next/link'
 import { Dialog, Popover, Tab, Transition, Menu } from '@headlessui/react'
-import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { BiUserCircle } from 'react-icons/bi';
 
 
@@ -59,6 +59,7 @@ const products = {
             { name: 'Browse All', href: '/mugs' },
           ],
         },
+        
       ],
     },
   ],
@@ -81,6 +82,7 @@ function classNames(...classes) {
 export default function Example({logout , user, cart, subTotal, deleteItemFromCart }) {
   const [open, setOpen] = useState(false)
   const [OpenCart, setOpenCart] = useState(false)
+
 
   return (
     <div className="bg-white">
@@ -134,16 +136,16 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                           ))}
                         </div>
                         {category.sections.map((section) => (
-                          <div key={section.name}>
+                          <div key={section.name} show={open}>
                             <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-gray-900">
                               {section.name}
                             </p>
                             <ul role="list" aria-labelledby={`${category.id}-${section.id}-heading-mobile`} className="mt-6 flex flex-col space-y-6">
                               {section.items.map((item) => (
                                 <li key={item.name} className="flow-root">
-                                  <Link href={item.href} className="-m-2 block p-2 text-gray-500">
+                                  <a href={item.href} className="-m-2 block p-2 text-gray-500">
                                     {item.name}
-                                  </Link>
+                                  </a>
                                 </li>
                               ))}
                             </ul>
@@ -214,8 +216,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                       {({ open }) => (
                         <>
                           <div className="relative flex ">
-                            <Popover.Button
-                              className={classNames(open ? 'border-indigo-600 text-indigo-600': 'border-transparent text-gray-700 hover:text-gray-800','relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out')}>
+                            <Popover.Button className={classNames(open ? 'border-indigo-600 text-indigo-600 outline-none': ' text-gray-700 hover:text-gray-800 outline-none','relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out')}>
                               {category.name}
                             </Popover.Button>
                           </div>
@@ -253,9 +254,9 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                                           <ul role="list" aria-labelledby={`${section.name}-heading`} className="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
                                             {section.items.map((item) => (
                                               <li key={item.name} className="flex">
-                                                <Link href={item.href} className="hover:text-gray-800">
+                                                <a href={item.href} className=" hover:text-gray-800">
                                                   {item.name}
-                                                </Link>
+                                                </a>
                                               </li>
                                             ))}
                                           </ul>
@@ -396,7 +397,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                                   </div>
                                   <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                     <p>or
-                                      <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500" onClick={() => setOpen(false)}>Continue Shopping
+                                      <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500" onClick={() => setOpenCart(false)}>Continue Shopping
                                         <span aria-hidden="true"> &rarr;</span>
                                       </button>
                                     </p>

@@ -12,7 +12,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function ForgotPage({dbuser}) {
-
     const router = useRouter()
     const { token } = router.query
     const [email, setEmail] = useState('')
