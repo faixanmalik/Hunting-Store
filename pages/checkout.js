@@ -107,7 +107,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
 
       setTimeout(() => {
         router.push(`${process.env.NEXT_PUBLIC_HOST}/order?id=${response.id}&clearCart=1`)
-      }, 1000);      
+      }, 1000);
 
         setEmail('')
         setCardHolder('')

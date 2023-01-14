@@ -24,6 +24,8 @@ const Slug = ({addToCart , product , variants}) => {
   }, [router.query])
   
   
+
+
   // React tostify
   const addcart = () => toast.success("Item is added in your Cart.!");
 
@@ -35,8 +37,8 @@ const Slug = ({addToCart , product , variants}) => {
 
 
   return <>
-  <Head>
-      <title>ProductDetail_Hunting_Store</title>
+    <Head>
+      <title>ProductDetails_Hunting_Store</title>
       <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
    </Head>
   <section className="text-gray-600 body-font overflow-hidden">
@@ -153,6 +155,8 @@ export async function getServerSideProps(context) {
         colorSizeSlug[item.color][item.size] = {slug: item.slug}
       }
     }
+
+
 
   // Pass data to the page via props
   return {

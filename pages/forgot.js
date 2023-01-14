@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -8,7 +8,6 @@ import Forgot from '../models/Forgot'
 
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { userAgent } from 'next/server'
 
 
 
@@ -185,7 +184,7 @@ export async function getServerSideProps(context) {
     }
 
     let dbuser = await Forgot.findOne({token: context.query.token})
-    
+
 
   return {
     props: { dbuser: JSON.parse(JSON.stringify(dbuser)) } 

@@ -15,10 +15,9 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Hunting_Store</title>
+        <title>huntingcoder</title>
         <meta name="description" content="Hunting_Store" />
         <link rel="icon" href="/favicon.ico" />
-
       </Head>
       
       <Hero/>
