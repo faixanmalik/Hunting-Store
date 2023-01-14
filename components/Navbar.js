@@ -34,7 +34,7 @@ const products = {
             { name: 'Dresses', href: '#' },
             { name: 'Sweaters', href: '#' },
             { name: 'Jackets', href: '#' },
-            { name: 'Browse All', href: '#' },
+            { name: 'Browse All', href: '/tshirt' },
           ],
         },
         {
@@ -216,7 +216,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                       {({ open }) => (
                         <>
                           <div className="relative flex ">
-                            <Popover.Button className={classNames(open ? 'border-indigo-600 text-indigo-600 outline-none': ' text-gray-700 hover:text-gray-800 outline-none','relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out')}>
+                            <Popover.Button className={classNames(open ? 'border-indigo-600 text-indigo-600 outline-none' : ' text-gray-700 hover:text-gray-800 outline-none','relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out')}>
                               {category.name}
                             </Popover.Button>
                           </div>
@@ -257,6 +257,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                                                 <a href={item.href} className=" hover:text-gray-800">
                                                   {item.name}
                                                 </a>
+                              
                                               </li>
                                             ))}
                                           </ul>
