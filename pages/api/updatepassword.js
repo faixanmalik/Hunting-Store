@@ -1,9 +1,9 @@
 import User from '../../models/User'
 import connectDb from '../../middleware/mongoose'
 import CryptoJS from 'crypto-js';
-
 // Jwt token
 var jwt = require('jsonwebtoken');
+
 
 const handler = async (req,res)=>{
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router'
 import Product from '../../models/Product';
 import mongoose from "mongoose";
@@ -140,21 +141,24 @@ export async function getServerSideProps(context) {
   }
   let product = await Product.findOne({slug: context.query.slug})
   let variants = await Product.find({title: product.title , category: product.category})
-  
-  let colorSizeSlug = {}
-  for (let item of variants){
-    if(Object.keys(colorSizeSlug).includes(item.color) ){
-      colorSizeSlug[item.color][item.size] = {slug: item.slug}
+
+
+    let colorSizeSlug = {}
+    for (let item of variants){
+      if(Object.keys(colorSizeSlug).includes(item.color) ){
+        colorSizeSlug[item.color][item.size] = {slug: item.slug}
+      }
+      else{
+        colorSizeSlug[item.color] = {}
+        colorSizeSlug[item.color][item.size] = {slug: item.slug}
+      }
     }
-    else{
-      colorSizeSlug[item.color] = {}
-      colorSizeSlug[item.color][item.size] = {slug: item.slug}
-    }
-  };
 
   // Pass data to the page via props
   return {
      props: { product: JSON.parse(JSON.stringify(product)), variants: JSON.parse(JSON.stringify(colorSizeSlug)) } 
     }
-}
+
+  }
+
 export default Slug

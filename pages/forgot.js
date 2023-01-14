@@ -1,24 +1,26 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import mongoose from 'mongoose'
+import Forgot from '../models/Forgot'
+
 
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { userAgent } from 'next/server'
 
 
 
-function Forgot() {
+function ForgotPage({dbuser}) {
+
     const router = useRouter()
-    console.log(router.query.token)
-
+    const { token } = router.query
     const [email, setEmail] = useState('')
     const [npassword, setNpassword] = useState('')
     const [cnpassword, setCnpassword] = useState('')
 
-
-
-
+    
     const handleChange = (e) => {
         if ( e.target.name === 'email') {
           setEmail(e.target.value)
@@ -39,14 +41,14 @@ function Forgot() {
         
         // fetch the data from form to makes a file in local system
         const data = { email };
-          let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/forgot`, {
+          let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/sendemail`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(data),
         })
-          let response = await res.json()    
+          let response = await res.json()
             setEmail('')
     
             if (response.success === true) {
@@ -62,14 +64,15 @@ function Forgot() {
 
     const setPassword = async (e) => {
         e.preventDefault()
+
         if( npassword !== cnpassword ){
             document.getElementById('checkPassword').innerHTML = "Your Password is not Match!"
           }
         else{
             document.getElementById('checkPassword').innerHTML = ""
             // fetch the data from form to makes a file in local system
-            const data = { npassword, cnpassword };
-              let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/forgot`, {
+            const data = { npassword, cnpassword , token };
+              let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/setpassword`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -77,7 +80,6 @@ function Forgot() {
               body: JSON.stringify(data),
             })
           let response = await res.json()    
-            setEmail('')
     
             if (response.success === true) {
                 toast.success("Your Password has been changes successfully" , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
@@ -104,7 +106,7 @@ function Forgot() {
             <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
             <div className="px-5 py-7">
 
-            {router.query.token && <div>
+            { dbuser && <div>
                 <form method='POST' onSubmit={setPassword}>
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">New Password</label>
                 <input id='npassword' name='npassword' onChange={handleChange} value={npassword} type="password" className="bg-gray-100 bg-opacity-50 resize-none text-gray-700 outline-none border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full transition-colors duration-200 ease-in-out" />
@@ -122,7 +124,7 @@ function Forgot() {
 
 
 
-            {!router.query.token && <form method='POST' onSubmit={sendEmailDetails}>
+            { dbuser === null  && <form method='POST' onSubmit={sendEmailDetails}>
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">E-mail</label>
                 <input onChange={handleChange} value={email} id='email' name='email' type="text" className="bg-gray-100 bg-opacity-50 resize-none text-gray-700 outline-none border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full transition-colors duration-200 ease-in-out" required />
                 
@@ -173,4 +175,22 @@ function Forgot() {
   )
 }
 
-export default Forgot
+
+
+export async function getServerSideProps(context) {
+
+    if (!mongoose.connections[0].readyState){
+        mongoose.set("strictQuery", false);
+        await mongoose.connect(process.env.MONGO_URI)
+    }
+
+    let dbuser = await Forgot.findOne({token: context.query.token})
+    
+
+  return {
+    props: { dbuser: JSON.parse(JSON.stringify(dbuser)) } 
+   }
+
+}
+
+export default ForgotPage

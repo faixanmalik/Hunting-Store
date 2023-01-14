@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
     orderId:{type: Number, required: true, default: Math.floor(Math.random() * Date.now()), unique: true},
-    Firstname:{type: String, required: true},
-    lastname:{type: String, required: true},
+    Firstname:{type: String},
+    lastname:{type: String },
     email:{type: String, required: true},
     phoneno:{type: Number, required: true},
     cardHolder:{type: String, required: true},

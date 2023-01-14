@@ -55,13 +55,13 @@ function MyOrder ({ order, clearCart }) {
         
         <div className="flex">
           <span className="title-font font-medium text-2xl text-gray-900">${totalAmount}</span>
-          <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Track Order</button>
+          <button className="flex ml-auto items-center bg-indigo-600 text-white rounded-xl font-semibold border-0 py-2 px-5 focus:outline-none hover:bg-indigo-700 text-base mt-4 md:mt-0">Track Order</button>
         </div>
 
 
 
       </div>
-      <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400"/>
+      <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://media.istockphoto.com/id/1340117122/photo/cube-with-shopping-trolley-symbol-on-the-laptop-keyboard.jpg?b=1&s=170667a&w=0&k=20&c=PU8iTTvTj6TV6_Quy9Z7KQJoOgY-rp_rqI9FbFNFYEw="/>
     </div>
   </div>
     </section>
@@ -77,7 +77,7 @@ function MyOrder ({ order, clearCart }) {
           await mongoose.connect(process.env.MONGO_URI)
         }
         let order = await Order.findById(context.query.id)
-        
+
         // Pass data to the page via props
         return {
            props: { order: JSON.parse(JSON.stringify(order)) } 

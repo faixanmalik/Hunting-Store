@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps }) {
   const [key, setKey] = useState(0)
 
 
-
   //  react top loading bar
   const [progress, setProgress] = useState(0)
 

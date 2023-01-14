@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import Carosel from '../components/Carosel'
 import Team from '../components/Team'
 import Statics from '../components/Statics'

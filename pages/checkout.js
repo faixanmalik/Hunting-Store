@@ -28,7 +28,6 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
   const [zip, setZip] = useState('')
 
   useEffect(() => {
-    console.log(firstname, lastname, phoneno, streetAddress, state, zip)
     const myUser = JSON.parse(localStorage.getItem('myUser'))
     if(myUser){
       setUser(myUser)
@@ -96,10 +95,10 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
 
     
     // fetch the data from form to makes a file in local system
-    const data = { email, cardHolder, cardNumber, cardExpiry, cardCvc, products , amount , streetAddress, state, zip };
+    const data = { email, firstname, lastname, phoneno, cardHolder, cardNumber, cardExpiry, cardCvc, products , amount , streetAddress, state, zip };
       let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/order`, {
       method: 'POST',
-      headers: {
+      headers: { 
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
