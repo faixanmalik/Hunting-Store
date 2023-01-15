@@ -9,7 +9,7 @@ const ProductSchema = new mongoose.Schema({
     size: String,
     color: String,
     price: {type: Number, required: true},
-    avilableQty: {type: Number, required: true},
+    avilableQty: { type: Number },
   },{timestamps:true});
 
 mongoose.models = {};

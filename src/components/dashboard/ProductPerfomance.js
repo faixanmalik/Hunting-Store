@@ -52,7 +52,7 @@ const products = [
 
 const ProductPerfomance = () => {
   return (
-    <BaseCard title="Orders">
+    <BaseCard title="Products">
       <Table
         aria-label="simple table"
         sx={{

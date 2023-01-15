@@ -49,7 +49,7 @@ const Slug = ({addToCart , product , variants}) => {
   <section className="text-gray-600 body-font overflow-hidden">
       <div className="container min-h-screen px-5 py-10 mx-auto">
         <div className="lg:w-4/5 mx-auto justify-center flex flex-wrap">
-          <img alt="ecommerce" className="lg:w-2/5 h-96 object-cover object-top rounded" src={product.img}/>
+          <img alt="ecommerce" className="lg:w-2/5 h-450 object-cover object-top rounded" src={product.img}/>
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">Hunting_Store</h2>
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.title} ({product.size}/{product.color})</h1>
