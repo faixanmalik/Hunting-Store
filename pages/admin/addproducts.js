@@ -69,8 +69,7 @@ function Addproducts() {
       body: JSON.stringify(data),
     })
       let response = await res.json()
-      console.log(response)
-
+      
         if (response.success === true) {
             toast.success(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
         }
@@ -109,9 +108,65 @@ function Addproducts() {
           <form method='POST' onSubmit={submit}>
             <Stack spacing={3}>
               <TextField onChange={handleChange} value={title} name="title" label="Title" variant="outlined"  required/>
-              <TextField onChange={handleChange} value={category} name="category" label="Category" variant="outlined"  required/>
-              <TextField onChange={handleChange} value={size} name="size" label="Size" variant="outlined"  required/>
-              <TextField onChange={handleChange} value={color} name="color" label="Color" variant="outlined"  required/>
+
+              
+              <div className="flex ml-6 items-center">
+                <span className="mr-3">Category: </span>
+                <div className="relative">
+                  <select name='category' value={category} onChange={handleChange} className="rounded-md border pl-2 appearance-none py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-800 text-base l-3 pr-10" required>
+                    <option value={'tshirt'}>Tshirts</option>
+                    <option value={'hoodies'}>Hoodies</option>
+                    <option value={'mugs'}>Mugs</option>
+                    <option value={'sneakers'}>Sneakers</option>
+                  </select>
+                  <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4" viewBox="0 0 24 24">
+                      <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div className="flex ml-6 items-center">
+                <span className="mr-3">Size: </span>
+                <div className="relative">
+                  <select name='size' value={size} onChange={handleChange} className="rounded-md border pl-2 appearance-none py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-800 text-base l-3 pr-10">
+                    <option value={'s'}>S</option>
+                    <option value={'m'}>M</option>
+                    <option value={'l'}>L</option>
+                    <option value={'xl'}>XL</option>
+                    <option value={'xxl'}>XXL</option>
+
+                  </select>
+                  <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center" required>
+                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4" viewBox="0 0 24 24">
+                      <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+
+
+              <div className="flex ml-6 items-center">
+                <span className="mr-3">Color: </span>
+                <div className="relative">
+                  <select name='color' value={color} onChange={handleChange} className="rounded-md border pl-2 appearance-none py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-800 text-base l-3 pr-10" required>
+                    <option value={'black'}>Black</option>
+                    <option value={'blue'}>Blue</option>
+                    <option value={'white'}>White</option>
+                    <option value={'green'}>Green</option>
+                    <option value={'yellow'}>Yellow</option>
+                  </select>
+                  <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4" viewBox="0 0 24 24">
+                      <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+
+
               <TextField onChange={handleChange} value={price} name="price" label="Price" variant="outlined"  required/>
               <TextField onChange={handleChange} value={slug} name="slug" label="Slug" variant="outlined"  required/>
               <TextField onChange={handleChange} value={desc} name="desc" label="Description" multiline rows={4} required/>

@@ -33,9 +33,9 @@ export default function Index({products}) {
       <Grid item xs={12} lg={8}>
         <ProductPerfomance />
       </Grid>
-      <Grid item xs={12} lg={12}>
+      {/* <Grid item xs={12} lg={12}>
         <BlogCard />
-      </Grid>
+      </Grid> */}
     </Grid>
     </FullLayout>
   </ThemeProvider>

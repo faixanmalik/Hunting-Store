@@ -1,14 +1,45 @@
-import React from 'react'
+import {React, useEffect, useState} from 'react'
+import Orders from '../../src/components/dashboard/Orders';
 
 // Admin pannel
 import FullLayout from "../../src/layouts/FullLayout";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../src/theme/theme";
 import { Grid,} from "@mui/material";
-import ProductPerfomance from "../../src/components/dashboard/ProductPerfomance"
+
+
 
 
 function AllOrders() {
+
+  const [orders, setOrders] = useState([])
+  
+  useEffect(() => {
+
+    // fetch the data from form to makes a file in local system
+    const fetchOrder = async ()=>{
+      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/myorders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: JSON.parse(localStorage.getItem('myUser')).token }),
+        })
+        let response = await res.json()
+        setOrders(response.orders)
+      }
+
+    if(!localStorage.getItem('myUser')){
+      router.push('/')  
+    }
+    else{
+      fetchOrder();
+    }
+      
+  }, [])
+
+
+
   return (
     <ThemeProvider theme={theme}>
     <FullLayout>
@@ -22,7 +53,7 @@ function AllOrders() {
 
     <Grid container spacing={0}>
       <Grid item xs={12} lg={12}>
-        <ProductPerfomance />
+        <Orders orders={orders} />
       </Grid>
     </Grid>
 
@@ -32,5 +63,6 @@ function AllOrders() {
     </ThemeProvider>
   )
 }
+
 
 export default AllOrders

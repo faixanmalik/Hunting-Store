@@ -12,7 +12,7 @@ const activities = [
   {
     time: "09.50",
     color: "success.main",
-    text: "Meeting with John",
+    text: "New Order Received",
   },
   {
     time: "09.46",
