@@ -159,9 +159,9 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   {products.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
+                      <Link href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
                         {page.name}
-                      </a>
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -310,7 +310,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                       {({ active }) => (<Link href={'/orders'} className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')}>My Orders</Link>)}
                     </Menu.Item>
                     <Menu.Item>
-                      {({ active }) => (<a href="#" className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')}>License</a>)}
+                      {({ active }) => (<Link href="#" className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')}>License</Link>)}
                     </Menu.Item>
                     <div>
                       <Menu.Item> 
@@ -394,7 +394,7 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                                     Shipping and taxes calculated at checkout.
                                   </p>
                                   <div className="mt-6">
-                                    <a href="/checkout" className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                                    <Link href="/checkout" className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</Link>
                                   </div>
                                   <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                     <p>or
