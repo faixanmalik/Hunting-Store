@@ -1,20 +1,13 @@
-import React from "react";
+import {React, useEffect,useState} from "react";
 import FeatherIcon from "feather-icons-react";
 import Image from "next/image";
 import userimg from "../../../assets/images/users/user2.jpg";
-import {
-  Box,
-  Menu,
-  Typography,
-  Link,
-  ListItemButton,
-  List,
-  ListItemText,
-  Button,
-  Divider,
-} from "@mui/material";
+import { Box, Menu, Typography, Link, ListItemButton, List, ListItemText, Button, Divider,} from "@mui/material";
+
+
+
 const ProfileDD = () => {
-  const [anchorEl4, setAnchorEl4] = React.useState(null);
+  const [anchorEl4, setAnchorEl4] = useState(null);
 
   const handleClick4 = (event) => {
     setAnchorEl4(event.currentTarget);
@@ -23,6 +16,45 @@ const ProfileDD = () => {
   const handleClose4 = () => {
     setAnchorEl4(null);
   };
+
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [user, setUser] = useState({value: null})
+
+
+  useEffect(() => {
+    const myUser = JSON.parse(localStorage.getItem('myUser'))
+      myUser &&  fetchUser( myUser.token);
+  }, [])
+
+
+
+  const fetchUser = async(token) =>{
+    // fetch the data from form to makes a file in local system
+    const data = { token: token  };
+      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      let response = await res.json()
+      setEmail(response.email)
+      setName(response.firstname + ' ' + response.lastname)
+  }
+
+  // Logout function
+  const logout = ()=>{
+    localStorage.removeItem("myUser");
+    setUser({value:null});
+  }
+
+
+
+
+
   return (
     <>
       <Button
@@ -64,7 +96,7 @@ const ProfileDD = () => {
                 ml: 1,
               }}
             >
-              Julia
+              {name}
             </Typography>
             <FeatherIcon icon="chevron-down" width="20" height="20" />
           </Box>
@@ -89,24 +121,24 @@ const ProfileDD = () => {
               aria-label="secondary mailbox folder"
               onClick={handleClose4}
             >
-              <ListItemButton>
+              <ListItemButton href="/myaccount">
                 <ListItemText primary="Edit Profile" />
               </ListItemButton>
-              <ListItemButton>
+              <ListItemButton href="/myaccount">
                 <ListItemText primary="Account" />
               </ListItemButton>
-              <ListItemButton>
+              <ListItemButton href="/myaccount">
                 <ListItemText primary="Change Password" />
               </ListItemButton>
-              <ListItemButton>
+              <ListItemButton href="/myaccount">
                 <ListItemText primary="My Settings" />
               </ListItemButton>
             </List>
           </Box>
           <Divider />
           <Box p={2}>
-            <Link to="/">
-              <Button fullWidth variant="contained" color="primary">
+            <Link onClick={logout}>
+              <Button fullWidth variant="outlined" className="no-underline" color="primary">
                 Logout
               </Button>
             </Link>

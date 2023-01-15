@@ -9,10 +9,14 @@ import 'react-toastify/dist/ReactToastify.css';
 function Myaccount() {
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('myUser'))
-    if(user){
-      setUser(user)
-      setEmail(user.email)
+    const myUser = JSON.parse(localStorage.getItem('myUser'))
+    if(!myUser){
+        router.push('/')
+    }
+    if(myUser && myUser.token){
+      setUser(myUser)
+      setEmail(myUser.email)
+      fetchUser(myUser.token);
     }
   }, [])
 
@@ -27,19 +31,6 @@ function Myaccount() {
   const [cpassword, setCpassword] = useState('')
   const [npassword, setNpassword] = useState('')
   const [cnpassword, setCnpassword] = useState('')
-
-
-  useEffect(() => {
-    const myUser = JSON.parse(localStorage.getItem('myUser'))
-    if(!myUser){
-        router.push('/')
-    }
-    if(myUser && myUser.token){
-      setUser(myUser)
-      setEmail(myUser.email)
-      fetchUser(myUser.token);
-    }
-  }, [])
 
 
   const fetchUser = async(token) =>{

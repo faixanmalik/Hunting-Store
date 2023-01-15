@@ -87,7 +87,6 @@ function Addproducts() {
         setSlug('')
         setImg('')
 
-
   }
 
     return (

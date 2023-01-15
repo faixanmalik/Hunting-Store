@@ -1,19 +1,19 @@
+import mongoose from "mongoose";
+import Product from "../../models/Product";
+// Admin pannel
 import { Grid } from "@mui/material";
 import BlogCard from "../../src/components/dashboard/BlogCard";
 import SalesOverview from "../../src/components/dashboard/SalesOverview";
 import DailyActivity from "../../src/components/dashboard/DailyActivity";
-import ProductPerfomance from "../../src/components/dashboard/ProductPerfomance";
-
-
-// Admin pannel
 import FullLayout from "../../src/layouts/FullLayout";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../src/theme/theme";
+import ProductPerfomance from "../../src/components/dashboard/ProductPerfomance";
 
 
 
 
-export default function Index() {
+export default function Index({products}) {
   return (
     <ThemeProvider theme={theme}>
       <style jsx global>{`

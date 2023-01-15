@@ -1,4 +1,5 @@
 import React from 'react'
+
 // Admin pannel
 import FullLayout from "../../src/layouts/FullLayout";
 import { ThemeProvider } from "@mui/material/styles";

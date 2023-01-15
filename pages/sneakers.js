@@ -10,7 +10,7 @@ function Sneakers({ product }) {
   return (
     <>
     <Head>
-        <title>Hoodies_Hunting_Store</title>
+        <title>Sneakers_Hunting_Store</title>
         <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
     </Head>
     <div className="bg-white">
@@ -24,10 +24,10 @@ function Sneakers({ product }) {
 
         {Object.keys(product).map((item)=>{
             return <Link key={product[item]._id} href={`/product/${product[item].slug}`} className="group">
-              <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+              <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-white xl:aspect-w-7 xl:aspect-h-8">
                 <img
                   src={product[item].img}
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
+                  className="h-full w-full object-contain group-hover:opacity-75"
                 />
               </div>
                 <h3 className="mt-4 text-sm text-gray-700">{product[item].title}</h3>

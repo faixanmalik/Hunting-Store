@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
 
     let myUser = JSON.parse(localStorage.getItem("myUser"));
     if( myUser ){
-      setUser({value: myUser.token , email: myUser.email });
+      setUser({value: myUser.token , email: myUser.email, name: myUser.name });
       setKey(Math.random());
     }
 

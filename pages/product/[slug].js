@@ -94,20 +94,21 @@ const Slug = ({addToCart , product , variants}) => {
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
               <div className="flex">
                 <span className="mr-3">Color</span>
-                {Object.keys(variants).includes('Yellow') && Object.keys(variants['Yellow']).includes(size) && <button onClick={()=>{refresh(size , 'Yellow')}} className={`border-2 bg-yellow-600 rounded-full w-6 h-6 focus:outline-none ${ color === 'Yellow' ? 'border-black' : 'border-gray-300' }`}></button>}
-                {Object.keys(variants).includes('Green') && Object.keys(variants['Green']).includes(size) && <button onClick={()=>{refresh(size , 'Green')}} className={`border-2 ml-1 bg-green-700 rounded-full w-6 h-6 focus:outline-none ${ color === 'Green' ? 'border-black' : 'border-gray-300' }`}></button>}
-                {Object.keys(variants).includes('Black') && Object.keys(variants['Black']).includes(size) && <button onClick={()=>{refresh(size , 'Black')}} className={`border-2 ml-1 bg-black rounded-full w-6 h-6 focus:outline-none ${ color === 'Black' ? 'border-black' : 'border-gray-300' }`}></button>}
-                {Object.keys(variants).includes('Blue') && Object.keys(variants['Blue']).includes(size) && <button onClick={()=>{refresh(size , 'Blue')}} className={`border-2 ml-1 bg-blue-700 rounded-full w-6 h-6 focus:outline-none ${ color === 'Blue' ? 'border-black' :'border-gray-300' }`}></button>}
+                {Object.keys(variants).includes('yellow') && Object.keys(variants['yellow']).includes(size) && <button onClick={()=>{refresh(size , 'yellow')}} className={`border-2 bg-yellow-600 rounded-full w-6 h-6 focus:outline-none ${ color === 'yellow' ? 'border-black' : 'border-gray-300' }`}></button>}
+                {Object.keys(variants).includes('green') && Object.keys(variants['green']).includes(size) && <button onClick={()=>{refresh(size , 'green')}} className={`border-2 ml-1 bg-green-700 rounded-full w-6 h-6 focus:outline-none ${ color === 'green' ? 'border-black' : 'border-gray-300' }`}></button>}
+                {Object.keys(variants).includes('black') && Object.keys(variants['black']).includes(size) && <button onClick={()=>{refresh(size , 'black')}} className={`border-2 ml-1 bg-black rounded-full w-6 h-6 focus:outline-none ${ color === 'black' ? 'border-black' : 'border-gray-300' }`}></button>}
+                {Object.keys(variants).includes('blue') && Object.keys(variants['blue']).includes(size) && <button onClick={()=>{refresh(size , 'blue')}} className={`border-2 ml-1 bg-blue-700 rounded-full w-6 h-6 focus:outline-none ${ color === 'blue' ? 'border-black' :'border-gray-300' }`}></button>}
+                {Object.keys(variants).includes('white') && Object.keys(variants['white']).includes(size) && <button onClick={()=>{refresh(size , 'white')}} className={`border-2 ml-1 bg-blue-700 rounded-full w-6 h-6 focus:outline-none ${ color === 'white' ? 'border-black' :'border-gray-300' }`}></button>}
               </div>
               <div className="flex ml-6 items-center">
                 <span className="mr-3">Size</span>
                 <div className="relative">
                   <select value={size} onChange={(e)=>{refresh(e.target.value , color)}} className="rounded-md border pl-2 appearance-none py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base l-3 pr-10">
-                    {Object.keys(variants[color]).includes('S') && <option value={'S'}>S</option>}
-                    {Object.keys(variants[color]).includes('M') && <option value={'M'}>M</option>}
-                    {Object.keys(variants[color]).includes('L') && <option value={'L'}>L</option>}
-                    {Object.keys(variants[color]).includes('XL') && <option value={'XL'}>XL</option>}
-                    {Object.keys(variants[color]).includes('XXL') && <option value={'XXL'}>XXL</option>}
+                    {Object.keys(variants[color]).includes('s') && <option value={'s'}>S</option>}
+                    {Object.keys(variants[color]).includes('m') && <option value={'m'}>M</option>}
+                    {Object.keys(variants[color]).includes('l') && <option value={'l'}>L</option>}
+                    {Object.keys(variants[color]).includes('xl') && <option value={'xl'}>XL</option>}
+                    {Object.keys(variants[color]).includes('xxl') && <option value={'xxl'}>XXL</option>}
                   </select>
                   <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                     <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4" viewBox="0 0 24 24">

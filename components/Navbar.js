@@ -49,17 +49,17 @@ const products = {
           ],
         },
         {
-          id: 'Mugs',
-          name: 'Mugs',
+          id: 'Sneakers',
+          name: 'Sneakers',
           items: [
-            { name: 'Mugs', href: '/mugs' },
+            { name: 'Sneakers', href: '/sneakers' },
             { name: 'My Way', href: '#' },
             { name: 'Re-Arranged', href: '#' },
             { name: 'Significant Other', href: '#' },
-            { name: 'Browse All', href: '/mugs' },
+            { name: 'Browse All', href: '/sneakers' },
           ],
         },
-        
+     
       ],
     },
   ],
