@@ -304,6 +304,9 @@ export default function Example({logout , user, cart, subTotal, deleteItemFromCa
                 <Menu.Items className="absolute right-0 z-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <div className="py-1">
                     <Menu.Item>
+                      {({ active }) => ( <Link href={'/admin'} className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm' )}>Admin Account</Link>)}
+                    </Menu.Item>
+                    <Menu.Item>
                       {({ active }) => ( <Link href={'/myaccount'} className={classNames( active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm' )}>Account settings</Link>)}
                     </Menu.Item>
                     <Menu.Item>

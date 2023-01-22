@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -18,7 +18,8 @@ function ForgotPage({dbuser}) {
     const [npassword, setNpassword] = useState('')
     const [cnpassword, setCnpassword] = useState('')
 
-    
+
+
     const handleChange = (e) => {
         if ( e.target.name === 'email') {
           setEmail(e.target.value)
@@ -110,8 +111,8 @@ function ForgotPage({dbuser}) {
                 <input id='npassword' name='npassword' onChange={handleChange} value={npassword} type="password" className="bg-gray-100 bg-opacity-50 resize-none text-gray-700 outline-none border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full transition-colors duration-200 ease-in-out" />
 
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">Confirm New Password</label>
-                <input id='cnpassword' name='cnpassword' onChange={handleChange} value={cnpassword} type="password" className="bg-gray-100 bg-opacity-50 resize-none text-gray-700 outline-none border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full transition-colors duration-200 ease-in-out" />
-                <h1 id="checkPassword" className= 'text-sm text-red-600 '></h1>
+                <input id='cnpassword' name='cnpassword' onChange={handleChange} value={cnpassword} type="password" className="bg-gray-100 bg-opacity-50 resize-none text-gray-700 outline-none border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 rounded-lg px-3 py-2 mt-1 mb-1 text-sm w-full transition-colors duration-200 ease-in-out" />
+                <h1 id="checkPassword" className= 'text-sm text-red-600 mb-5'></h1>
         
                 <button type="submit" className="w-full text-center py-2 bg-indigo-700 text-white rounded-xl font-semibold hover:bg-blue-800 focus:outline-none my-1">
                     <span className="inline-block mr-2">Submit</span>

@@ -16,7 +16,6 @@ const handler = async (req,res)=>{
     const forgot= new Forgot({
       email: email,
       token: token,
-
     });
     await forgot.save();
 
@@ -37,7 +36,7 @@ The ${company} team`
     
 
 
-    if (req.method == 'POST'){
+  if (req.method == 'POST'){
         
       const transporter = nodemailer.createTransport({
           host:'smtp.gmail.com',
@@ -63,13 +62,11 @@ The ${company} team`
                 return res.status(400).json({ success: false, message: "Some Error Occured!"})
             }
         })
-
-         
-      }
-      
-      else{
+    }
+    
+  else{
         return res.status(400).json({ success: false, message: "Some Error Occured!"})
-      }
+    }
 
   }
 

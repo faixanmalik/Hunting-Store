@@ -1,7 +1,6 @@
 import {React, useEffect,useState} from "react";
 import FeatherIcon from "feather-icons-react";
 import Image from "next/image";
-import userimg from "../../../assets/images/users/user2.jpg";
 import { Box, Menu, Typography, Link, ListItemButton, List, ListItemText, Button, Divider,} from "@mui/material";
 
 
@@ -53,8 +52,6 @@ const ProfileDD = () => {
 
 
 
-
-
   return (
     <>
       <Button
@@ -65,13 +62,7 @@ const ProfileDD = () => {
         onClick={handleClick4}
       >
         <Box display="flex" alignItems="center">
-          <Image
-            src={userimg}
-            alt={userimg}
-            width="30"
-            height="30"
-            className="roundedCircle"
-          />
+          
           <Box
             sx={{
               display: {
