@@ -36,7 +36,7 @@ const Products = ({ products }) => {
         </TableHead>
         <TableBody>
           {products.map((product) => (
-            <TableRow key={product.id}>
+            <TableRow key={product._id}>
               <TableCell>
                 <Typography
                   sx={{

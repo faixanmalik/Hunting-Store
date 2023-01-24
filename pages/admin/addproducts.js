@@ -18,14 +18,13 @@ import BaseCard from "../../src/components/baseCard/BaseCard";
 function Addproducts() {
 
   const [title, setTitle] = useState('')
-  const [category, setCategory] = useState('')
-  const [size, setSize] = useState('')
-  const [color, setColor] = useState('')
+  const [category, setCategory] = useState('tshirts')
+  const [size, setSize] = useState('s')
+  const [color, setColor] = useState('black')
   const [price, setPrice] = useState('')
   const [slug, setSlug] = useState('')
   const [desc, setDesc] = useState('')
   const [img, setImg] = useState('')
-
 
 
   const handleChange = (e)=>{
@@ -61,6 +60,7 @@ function Addproducts() {
 
     // fetch the data from form to makes a file in local system
     const data = { title, size, price, img,  color, category, slug, desc };
+    console.log(data);
       let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/addproducts`, {
       method: 'POST',
       headers: {
@@ -114,7 +114,7 @@ function Addproducts() {
                 <span className="mr-3">Category: </span>
                 <div className="relative">
                   <select name='category' value={category} onChange={handleChange} className="rounded-md border pl-2 appearance-none py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-800 text-base l-3 pr-10" required>
-                    <option value={'tshirt'}>Tshirts</option>
+                    <option value={'tshirts'}>Tshirts</option>
                     <option value={'hoodies'}>Hoodies</option>
                     <option value={'mugs'}>Mugs</option>
                     <option value={'sneakers'}>Sneakers</option>

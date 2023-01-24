@@ -37,7 +37,7 @@ function Allproducts({products}) {
 }
 
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   if (!mongoose.connections[0].readyState){
     mongoose.set("strictQuery", false);
     await mongoose.connect(process.env.MONGO_URI)

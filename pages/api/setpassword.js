@@ -10,7 +10,7 @@ const handler = async (req,res)=>{
 
     if (req.method == 'POST'){
 
-        let {token, npassword, cnpassword} = req.body;
+        let { token, npassword } = req.body;
         
         
         let forgotUser = await Forgot.findOne({token})
