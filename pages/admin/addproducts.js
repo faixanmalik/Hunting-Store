@@ -60,7 +60,6 @@ function Addproducts() {
 
     // fetch the data from form to makes a file in local system
     const data = { title, size, price, img,  color, category, slug, desc };
-    console.log(data);
       let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/addproducts`, {
       method: 'POST',
       headers: {
@@ -76,7 +75,6 @@ function Addproducts() {
         else{
             toast.error(response.message , { position: "bottom-center", autoClose: 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
         }
-
         setTitle('')
         setCategory('')
         setSize('')
@@ -85,7 +83,6 @@ function Addproducts() {
         setDesc('')
         setSlug('')
         setImg('')
-
   }
 
     return (
@@ -108,8 +105,6 @@ function Addproducts() {
           <form method='POST' onSubmit={submit}>
             <Stack spacing={3}>
               <TextField onChange={handleChange} value={title} name="title" label="Title" variant="outlined"  required/>
-
-              
               <div className="flex ml-6 items-center">
                 <span className="mr-3">Category: </span>
                 <div className="relative">

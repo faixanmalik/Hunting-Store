@@ -1,8 +1,5 @@
-import mongoose from "mongoose";
-import Product from "../../models/Product";
 // Admin pannel
 import { Grid } from "@mui/material";
-import BlogCard from "../../src/components/dashboard/BlogCard";
 import SalesOverview from "../../src/components/dashboard/SalesOverview";
 import DailyActivity from "../../src/components/dashboard/DailyActivity";
 import FullLayout from "../../src/layouts/FullLayout";
@@ -13,7 +10,7 @@ import ProductPerfomance from "../../src/components/dashboard/ProductPerfomance"
 
 
 
-export default function Index({products}) {
+export default function Index() {
   return (
     <ThemeProvider theme={theme}>
       <style jsx global>{`
@@ -33,9 +30,6 @@ export default function Index({products}) {
       <Grid item xs={12} lg={8}>
         <ProductPerfomance />
       </Grid>
-      {/* <Grid item xs={12} lg={12}>
-        <BlogCard />
-      </Grid> */}
     </Grid>
     </FullLayout>
   </ThemeProvider>
