@@ -1,4 +1,3 @@
-import User from '../../models/User'
 import Forgot from "../../models/Forgot"
 import connectDb from '../../middleware/mongoose'
 
@@ -18,6 +17,15 @@ const handler = async (req,res)=>{
       token: token,
     });
     await forgot.save();
+
+
+
+    // To delete token data from database
+    // this function executes after 10 min and delete the token from database
+    setTimeout(async() => {
+      await Forgot.deleteOne({token});
+    }, 50000);
+
 
     let message = `Hello ${email},
 

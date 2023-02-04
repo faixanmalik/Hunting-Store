@@ -73,7 +73,7 @@ const Orders = ({ orders }) => {
 
               <TableCell>
                 <Typography color="textSecondary" variant="h6">
-                <Link href={`/order?id=${order._id}`} className='text-blue-600 underline cursor-pointer' >Details</Link>
+                <Link href={`/alluserorders?id=${order._id}`} className='text-blue-600 underline cursor-pointer' >Details</Link>
                 </Typography>
               </TableCell>
              

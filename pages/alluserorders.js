@@ -5,10 +5,9 @@ import mongoose from 'mongoose'
 import { useRouter } from 'next/router';
 
 
-function MyOrder ({ order, clearCart, user }) {
+function MyOrder ({ order, clearCart }) {
 
-  const router = useRouter();
-
+  const router = useRouter()
 
   useEffect(() => {
 
@@ -25,19 +24,58 @@ function MyOrder ({ order, clearCart, user }) {
       <meta name="description" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
    </Head>
     <section className="text-gray-600 body-font overflow-hidden">
-  <div className="container min-h-screen px-5 py-24 mx-auto">
+  <div className="container min-h-screen px-5 py-10 mx-auto">
 
-    { order == null || user.email != order.email && <div>
+    { order == null && <div>
       <h1 className='text-indigo-600 text-center font-semibold text-2xl'>No such order found!</h1>
     </div>}
 
-    { order != null && user.email === order.email &&  <div className="lg:w-4/5 mx-auto flex flex-wrap">
-      <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+    { order &&  <div className="lg:w-4/5 mx-auto flex flex-wrap">
+      <div className="w-full lg:py-6 mb-6 lg:mb-0">
         <h2 className="text-sm title-font text-gray-500 tracking-widest">Hunting_Store</h2>
 
-      
         <h1 className="text-gray-900 text-3xl title-font font-medium">Order Id: #{order && order.orderId}</h1>
-        <p className="leading-relaxed mb-4">Your Order has been placed!</p>
+        <p className="leading-relaxed mb-5">New Order Received!</p>
+
+
+
+
+
+
+        <h1 className="text-gray-900 pt-10 text-2xl title-font font-medium">User Details:</h1>
+        <div className="flex mb-4 text-center items-center">
+          <a className="flex-grow text-center text-indigo-500 border-b-2 border-gray-300 py-2 text-lg font-medium px-1">Name</a>
+          <a className="flex-grow text-center text-indigo-500 border-b-2 border-gray-300 py-2 text-lg font-medium px-1">Email</a>
+          <a className="flex-grow text-right text-indigo-500 border-b-2 border-gray-300 py-2 text-lg font-medium px-1">Phone No</a>
+          <a className="flex-grow text-center text-indigo-500 border-b-2 border-gray-300 py-2 text-lg font-medium px-1">Street Address</a>
+          <a className="flex-grow text-center text-indigo-500 border-b-2 border-gray-300 py-2 text-lg font-medium px-1">Zip Code</a>
+        </div>
+
+        <div className='mb-10'>
+
+            <div className="flex items-center w-full border-b-2 border-gray-200 py-2">
+                <div className="w-1/3 text-center font-medium text-gray-900">{order.cardHolder}</div>  
+                <div className="w-1/3 text-center font-medium text-gray-900">{order.email}</div>
+                <div className="w-1/3 text-center font-medium text-gray-900">{order.phoneno}</div>
+                <div className="w-1/3 text-center font-medium text-gray-900">{order.streetAddress}</div>
+                <div className="w-1/3 text-center font-medium text-gray-900">{order.zip}</div>
+            </div>
+          
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h1 className="text-gray-900 text-2xl title-font font-medium">Product Details:</h1>
         <div className="flex mb-4">
           <a className="flex-grow text-center text-indigo-500 border-b-2 border-gray-300 py-2 text-lg font-medium px-1">Products</a>
           <a className="flex-grow text-center text-indigo-500 border-b-2 border-gray-300 py-2 text-lg font-medium px-1">Quantity</a>
@@ -49,19 +87,18 @@ function MyOrder ({ order, clearCart, user }) {
 
         {order && Object.keys(order && order.products).map((item)=>{
           return <div key={item} className="flex w-full border-b-2 border-gray-200 py-2">
-            <div className="w-1/3 text-center font-medium text-gray-500">{order.products[item].name} ( {order.products[item].size}/{order.products[item].variant} )</div>  
+            <div className="w-1/3 text-center font-medium text-gray-900">{order.products[item].name} ( {order.products[item].size}/{order.products[item].variant} )</div>  
             <div className="w-1/3 text-center font-medium text-gray-900">{order.products[item].qty}</div>
             <div className="w-1/3 text-center font-medium text-gray-900">${order.products[item].price}</div>
           </div>})} 
           
         </div>
         
-        <div className="flex">
+        <div className="flex pt-5">
           <span className="title-font font-medium text-2xl text-gray-900">Total Amount: ${order && order.amount}</span>
-          <button className="flex ml-auto items-center bg-indigo-600 text-white rounded-xl font-semibold border-0 py-2 px-5 focus:outline-none hover:bg-indigo-700 text-base mt-4 md:mt-0">Track Order</button>
         </div>
       </div>
-      <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://media.istockphoto.com/id/1340117122/photo/cube-with-shopping-trolley-symbol-on-the-laptop-keyboard.jpg?b=1&s=170667a&w=0&k=20&c=PU8iTTvTj6TV6_Quy9Z7KQJoOgY-rp_rqI9FbFNFYEw="/>
+      
     </div>}
   </div>
     </section>

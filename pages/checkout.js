@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { React, useEffect, useState } from 'react'
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
@@ -37,30 +37,6 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
   }, [])
   
 
-
-  const fetchUser = async(token) =>{
-    // fetch the data from form to makes a file in local system
-    const data = { token: token  };
-      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      let response = await res.json()
-
-      setFirstname(response.firstname)
-      setLastname(response.lastname)
-      setEmail(response.email)
-      setPhoneno(response.phoneno)
-      setState(response.state)
-      setStreetAddress(response.streetAddress)
-      setZip(response.zip)
-  }
-
-
-
   const handleChange = (e) => {
     if ( e.target.name === 'email') {
       setEmail(e.target.value)
@@ -80,6 +56,9 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
     else if ( e.target.name === 'streetAddress') {
       setStreetAddress(e.target.value)
     }
+    else if ( e.target.name === 'phoneno') {
+      setPhoneno(e.target.value)
+    }
     else if (e.target.name === 'state') {
       setState(e.target.value)
     }
@@ -87,6 +66,33 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
       setZip(e.target.value)
     }
   }
+
+
+
+
+  const fetchUser = async(token) =>{
+    // fetch the data from form to makes a file in local system
+    const data = { token: token  };
+      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      let response = await res.json()
+      setFirstname(response.firstname)
+      setLastname(response.lastname)
+      setEmail(response.email)
+      setPhoneno(response.phoneno)
+      setStreetAddress(response.streetAddress)
+      setState(response.state)
+      setZip(response.zip)
+  }
+
+
+
+ 
 
 
 
@@ -114,6 +120,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
         setCardNumber('')
         setCardExpiry('')
         setCardCvc('')
+        setPhoneno('')
         setState('')
         setStreetAddress('')
         setZip('')
@@ -224,7 +231,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
 
 
 
-      <form method='POST' onSubmit={submit} className="">
+      <form method='POST' onSubmit={submit}>
         <label htmlFor="email" className="mt-4 mb-2 block text-sm font-medium">Email</label>
         <div className="relative">
 
@@ -261,13 +268,35 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
           <input onChange={handleChange} value={cardExpiry} type="string" name="cardExpiry" className="w-full rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="MM/YY" required />
           <input onChange={handleChange} value={cardCvc} type="number" name="cardCvc" className="w-1/6 flex-shrink-0 rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="CVC" required />
         </div>
+
+
+
+
+
+
+
+
+        <label htmlFor="phone-no" className="mt-4 mb-2 block text-sm font-medium">Phone No:</label>
+        <div className="flex">
+          <div className="relative w-7/12 flex-shrink-0">
+            <input onChange={handleChange} value={phoneno === 0 ? '': phoneno } type="number" id="phoneno" name="phoneno" className="w-full rounded-md border border-gray-200 px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="03xx-xxxxxxx" required />
+            <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+              <svg className="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1z" />
+                <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v5H1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+
         <label htmlFor="billing-address" className="mt-4 mb-2 block text-sm font-medium">Billing Address</label>
         <div className="flex flex-col sm:flex-row">
           <div className="relative sm:w-7/12">
             <input onChange={handleChange} value={streetAddress} type="text" id="streetAddress" name="streetAddress" className="w-full rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Street Address" required />
           </div>
           <input onChange={handleChange} value={state} type="text" id='state' name="state" className="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/4 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="State" required />
-          <input onChange={handleChange} value={zip} type="number" id='zip' name="zip" className=" flex-shrink-0 rounded-md border border-gray-200 pl-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="ZIP" required />
+          <input onChange={handleChange} value={zip === 0 ? '': zip } type="number" id='zip' name="zip" className=" flex-shrink-0 rounded-md border border-gray-200 pl-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="ZIP" required />
         </div>
 
       
