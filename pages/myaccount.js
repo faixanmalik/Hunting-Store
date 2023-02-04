@@ -199,6 +199,7 @@ function Myaccount() {
               <input onChange={handleChange} value={phoneno === 0 ? '' : phoneno } type="Number" id="phoneno" name="phoneno" className="w-full bg-gray-100 bg-opacity-50 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="+92300-1234567"  />
             </div>
           </div>
+          
           <div className='w-full sm:flex'>
             <div className="p-2 w-full sm:w-1/2">
               <div className="relative">
