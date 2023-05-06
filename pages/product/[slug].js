@@ -33,7 +33,7 @@ const Slug = ({addToCart , product , variants}) => {
 
 
   const refresh = ( newSize , newColor ) => {
-    let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newColor][newSize]['slug']}`;
+    let url = `/product/${variants[newColor][newSize]['slug']}`;
     router.push(url)
   }
 

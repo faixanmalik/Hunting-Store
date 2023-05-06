@@ -18,7 +18,7 @@ function AllOrders() {
 
     // fetch the data from form to makes a file in local system
     const fetchOrder = async ()=>{
-      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/allorders`, {
+      let res = await fetch(`/api/allorders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

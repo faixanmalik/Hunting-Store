@@ -66,14 +66,11 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
       setZip(e.target.value)
     }
   }
-
-
-
-
+  
   const fetchUser = async(token) =>{
     // fetch the data from form to makes a file in local system
     const data = { token: token  };
-      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
+      let res = await fetch(`/api/getuser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -90,19 +87,13 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
       setZip(response.zip)
   }
 
-
-
- 
-
-
-
   const submit = async (e) => {
     e.preventDefault()
 
     
     // fetch the data from form to makes a file in local system
     const data = { email, firstname, lastname, phoneno, cardHolder, cardNumber, cardExpiry, cardCvc, products , amount , streetAddress, state, zip };
-      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/order`, {
+      let res = await fetch(`/api/order`, {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
@@ -112,7 +103,7 @@ function Checkout({ cart , subTotal, removeFromCart, addToCart }) {
       let response = await res.json()
 
       setTimeout(() => {
-        router.push(`${process.env.NEXT_PUBLIC_HOST}/order?id=${response.id}&clearCart=1`)
+        router.push(`/order?id=${response.id}&clearCart=1`)
       }, 1000);
 
         setEmail('')
